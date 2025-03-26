@@ -4,7 +4,9 @@
   "description": "Focusing on MVC Pattern structure, GET/POST requests from form to DB, Handling data requests with async, handling data dynamically for templated view.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node db/populatedb.js"
+
   },
   "keywords": [],
   "author": "",
