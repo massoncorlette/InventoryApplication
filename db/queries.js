@@ -5,10 +5,17 @@ async function getAllTitles() {
   return rows;
 }
 
+async function getTitlesByGenre(genre) {
+  const { rows } = await pool.query("SELECT * FROM titles WHERE genre = $1", [`%${genre}`]
+  );
+  return rows;
+}
+
 
 
 
 module.exports = {
-  getAllTitles
+  getAllTitles,
+  getTitlesByGenre
 };
 
