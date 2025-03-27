@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS titles (
 
 );
 
-
 INSERT INTO directors (name) VALUES
   ('Lana Wachowski'),
   ('Christopher Nolan'),

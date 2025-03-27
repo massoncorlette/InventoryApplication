@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="index.css" />
   <title>Inventory Application</title>
 </head>
 <body>
-  <% titles.map(title => { %>
-    <li><%= title.title %></li>
-  <% }) %>
+  <div id="headerContainer">
+
+  </div>
+  <div id="mainBody">
+    <div id="sidebarContainer">
+
+    </div>
+    <div id="moviesDisplayContainer">
+    <% titles.map(title => { %>
+      <div class="movieCells"><%= title.title %></div>
+    <% }) %>
+    </div>
+  </div>
 </body>
 </html>
