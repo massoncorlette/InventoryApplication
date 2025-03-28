@@ -5,9 +5,8 @@ async function getAllTitles() {
   return rows;
 }
 
-async function getTitlesByGenre(genre) {
-  const { rows } = await pool.query("SELECT * FROM titles WHERE genre = $1", [`%${genre}`]
-  );
+async function getTitlesByGenre(genreID) {
+  const { rows } = await pool.query("SELECT * FROM titles WHERE genre_id = $1", [`${genreID}`]);
   return rows;
 }
 

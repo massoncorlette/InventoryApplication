@@ -8,8 +8,10 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/styles"));
 
 const indexRouter = require("./routes/index");
+const genreRouter = require("./routes/genre");
 
 app.use("/", indexRouter);
+app.use("/genre", genreRouter);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
