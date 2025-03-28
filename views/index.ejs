@@ -10,22 +10,28 @@
 </head>
 <body>
   <div id="headerContainer">
-    <div id="headerTxt">
-      Movies Base Network
-    </div>
+    <a href="/">
+      <div id="headerTxt">
+        Movies Base Network
+      </div>
+    </a>
   </div>
   <div id="mainBody">
     <div id="sidebarContainer">
       <div id="byGenre">
         <h2>Genre</h2>
         <% genres.forEach((genre, index) => { %>
-          <div class="sidebarCell"><%= genre.genre %></div>
+          <a href="/genre/<%= genre.genre_id %>">
+            <div class="sidebarCell" ><%= genre.genre %></div>
+          </a>
         <% }) %>
       </div>
       <div id="byDirector">
         <h2>Director</h2>
         <% directors.forEach((director, index) => { %>
-          <div class="sidebarCell"><%= director.name %></div>
+          <a href="/director/<%= director.director_id %>">
+            <div class="sidebarCell"><%= director.name %></div>
+          </a>
         <% }) %>
       </div>
     </div>

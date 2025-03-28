@@ -10,11 +10,21 @@ async function displayTitles(req, res) {
 };
 
 async function displayByGenre(req, res) {
-  console.log(req.params);
   const titles = await db.getTitlesByGenre(req.params.genre);
-  res.render("index", {titles:titles});
+  const genres = await db.getAllGenres();
+  const directors = await db.getAllDirectors();
+  res.render("index", {titles:titles, genres:genres, directors:directors});
 
 };
+
+async function displayByDirector(req, res) {
+  const titles = await db.getTitlesByDirector(req.params.director);
+  const genres = await db.getAllGenres();
+  const directors = await db.getAllDirectors();
+  res.render("index", {titles:titles, genres:genres, directors:directors});
+
+};
+
 
 async function displayTitleDetails(req, res) {
 
@@ -22,4 +32,4 @@ async function displayTitleDetails(req, res) {
 };
 
 
-module.exports = {displayTitles, displayByGenre, displayTitleDetails};
+module.exports = {displayTitles, displayByGenre, displayByDirector, displayTitleDetails};

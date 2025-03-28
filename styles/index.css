@@ -10,6 +10,11 @@ body {
   color: whitesmoke;
 }
 
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
 #headerContainer {
   height: 10%;
   display: flex;

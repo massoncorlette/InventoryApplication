@@ -20,13 +20,16 @@ async function getTitlesByGenre(genreID) {
   return rows;
 }
 
-
-
+async function getTitlesByDirector(directorID) {
+  const { rows } = await pool.query("SELECT * FROM titles WHERE director_id = $1", [`${directorID}`]);
+  return rows;
+}
 
 module.exports = {
   getAllTitles,
   getAllGenres,
   getAllDirectors,
-  getTitlesByGenre
+  getTitlesByGenre,
+  getTitlesByDirector
 };
 
