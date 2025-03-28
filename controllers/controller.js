@@ -3,7 +3,10 @@ const db = require("../db/queries");
 
 async function displayTitles(req, res) {
   const titles = await db.getAllTitles();
-  res.render("index", {titles:titles});
+  const genres = await db.getAllGenres();
+  const directors = await db.getAllDirectors();
+
+  res.render("index", {titles:titles, genres:genres, directors:directors});
 };
 
 async function displayByGenre(req, res) {

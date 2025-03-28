@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/index.css" />
+  <script src="../helpers.js" type="module"/></script>
   <title>Inventory Application</title>
 </head>
 <body>
@@ -15,10 +16,21 @@
   </div>
   <div id="mainBody">
     <div id="sidebarContainer">
-
+      <div id="byGenre">
+        <h2>Genre</h2>
+        <% genres.forEach((genre, index) => { %>
+          <div class="sidebarCell"><%= genre.genre %></div>
+        <% }) %>
+      </div>
+      <div id="byDirector">
+        <h2>Director</h2>
+        <% directors.forEach((director, index) => { %>
+          <div class="sidebarCell"><%= director.name %></div>
+        <% }) %>
+      </div>
     </div>
     <div id="moviesDisplayContainer">
-    <% titles.map(title => { %>
+    <% titles.forEach((title, index) => { %>
       <div class="movieCells"><%= title.title %></div>
     <% }) %>
     </div>

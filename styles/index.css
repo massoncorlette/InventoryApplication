@@ -31,6 +31,19 @@ body {
 
 #sidebarContainer {
   flex: 1;
+
+}
+
+#sidebarContainer div {
+  width: 100%;
+}
+
+.sidebarCell {
+  width: 100%;
+  height: 10%;
+  padding: 5%;
+  box-sizing: border-box;
+  background-color: rgb(56, 56, 56);
 }
 
 #moviesDisplayContainer {
@@ -43,8 +56,8 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-size: 1.2rem;
-  background-color: lightblue;
   width: 20%;
+  max-height: 50%;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
