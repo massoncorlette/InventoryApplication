@@ -1,3 +1,5 @@
+//for reading data
+
 const pool = require("./pool");
 
 async function getAllTitles() {

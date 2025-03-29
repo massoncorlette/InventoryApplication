@@ -16,6 +16,8 @@ app.use("/", indexRouter);
 app.use("/genre", genreRouter);
 app.use("/director", directorRouter);
 app.use("/details", detailsRouter);
+//route for edit title
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

@@ -4,7 +4,7 @@ const { Client } = require("pg");
 
 const { argv } = require('node:process');
 
-// query functions go here for CRUD on the tables 
+// script here to insert dummy data upon deployment
 
 
 const DefaultSQL = `

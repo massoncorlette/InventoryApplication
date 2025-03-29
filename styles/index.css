@@ -74,6 +74,15 @@ h1, h2  {
   flex-wrap: wrap;
 }
 
+#movieDetails {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .movieCells {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;

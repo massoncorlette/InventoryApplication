@@ -1,6 +1,6 @@
 const express = require("express");
 const { Router } = require("express");
-const { displayTitles } = require("../controllers/controller");
+const { displayTitles } = require("../controllers/viewController");
 
 //import controller functions to use here upon routes being used
 

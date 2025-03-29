@@ -1,5 +1,6 @@
-const db = require("../db/queries");
+//controller for view
 
+const db = require("../db/queries");
 
 async function displayTitles(req, res) {
   const titles = await db.getAllTitles();
@@ -17,12 +18,10 @@ async function displayByGenre(req, res) {
 };
 
 async function displayByDirector(req, res) {
-  console.log(req.params.director);
   const titles = await db.getTitlesByDirector(req.params.director);
   const genres = await db.getAllGenres();
   const directors = await db.getAllDirectors();
   res.render("index", {titles:titles, genres:genres, directors:directors});
-
 };
 
 async function displayTitleDetails(req, res) {
