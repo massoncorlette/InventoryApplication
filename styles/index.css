@@ -66,6 +66,30 @@ h1, h2  {
   padding: 5%;
   box-sizing: border-box;
   background-color: rgb(56, 56, 56);
+  display: flex;
+  align-items: center;
+}
+
+.sidebarCells a {
+  justify-content: flex-start;
+}
+
+.editIconContainer {
+  flex: 0;
+}
+
+.editIconButton {
+  background-color: transparent;
+}
+
+.editIconButton:hover {
+  cursor: pointer;
+}
+
+.editIcon {
+  height: 1rem;
+  fill: whitesmoke;
+  stroke: red;
 }
 
 #moviesDisplayContainer {
