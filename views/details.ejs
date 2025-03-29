@@ -21,27 +21,29 @@
       <div id="byGenre">
         <h2>Genre</h2>
         <% genres.forEach((genre, index) => { %>
-          <a href="/genre/<%= genre.genre_id %>">
-            <div class="sidebarCell" ><%= genre.genre %></div>
-          </a>
+        <div id="sidebarCells">
+          <a href="/genre/<%= genre.genre_id %>"><%= genre.genre %></a>
+        </div>
         <% }) %>
       </div>
       <div id="byDirector">
         <h2>Director</h2>
         <% directors.forEach((director, index) => { %>
-          <div class="sidebarCell">
-            <a href="/director/<%= director.director_id %>">
-            <%= director.name %>
-            </a>
-          </div>
+         <div class="sidebarCells">
+            <a href="/director/<%= director.director_id %>"><%= director.name %></a>
+         </div>
         <% }) %>
       </div>
     </div>
     <div id="moviesDisplayContainer">
       <div id="movieDetails">
-        <%= title.title %>
+        <div><%= titleDetails.titleName %></div>
+        <div><%= titleDetails.genreName %></div>
+        <div><%= titleDetails.directorName %></div>
+
       </div>
     </div>
   </div>
 </body>
 </html>
+

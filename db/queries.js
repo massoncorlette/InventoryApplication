@@ -26,8 +26,15 @@ async function getTitlesByDirector(directorID) {
 }
 
 async function getTitleDetails(titleID) {
-  const { title } = await pool.query("SELECT * FROM titles WHERE titles_id = $1", [`${titleID}`]);
-  return title;
+  console.log(titleID);
+  const title = await pool.query("SELECT * FROM titles WHERE titles_id = $1", [`${titleID}`]);
+  const titleDetails = title.rows[0] ;
+  const titleName = title.rows[0].title;
+  const genre = await pool.query("SELECT genre FROM genres WHERE genre_id = $1", [`${titleDetails.genre_id}`]);
+  const genreName = genre.rows[0].genre;
+  const director = await pool.query("SELECT name FROM directors WHERE director_id = $1", [`${titleDetails.director_id}`]);
+  const directorName = director.rows[0].name;
+  return {titleName, genreName, directorName};
 }
 
 module.exports = {

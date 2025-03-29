@@ -17,6 +17,7 @@ async function displayByGenre(req, res) {
 };
 
 async function displayByDirector(req, res) {
+  console.log(req.params.director);
   const titles = await db.getTitlesByDirector(req.params.director);
   const genres = await db.getAllGenres();
   const directors = await db.getAllDirectors();
@@ -25,10 +26,10 @@ async function displayByDirector(req, res) {
 };
 
 async function displayTitleDetails(req, res) {
-  const title = await db.getTitleDetails(req.params.title);
+  const titleDetails = await db.getTitleDetails(req.params.details);
   const genres = await db.getAllGenres();
   const directors = await db.getAllDirectors();
-  res.render("details", {title:title, genres:genres, directors:directors});
+  res.render("details", {titleDetails:titleDetails, genres:genres, directors:directors});
 };
 
 
