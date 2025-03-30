@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node db/populatedb.js"
+    "start": "node db/populatedb.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,12 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-validator": "^7.2.1",
+    "lint": "^0.8.19",
     "pg": "^8.14.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0"
   }
 }

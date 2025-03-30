@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/index.css" />
-  <script src="../helpers.js" type="module"/></script>
   <title>Inventory Application</title>
 </head>
 <body>
@@ -22,27 +21,31 @@
         <h2>Genre</h2>
         <% genres.forEach((genre, index) => { %>
         <div class="sidebarCells">
-          <%- include('sidebar/sidebargenre', {genre: genre, isToggled: false}) %>
+          <%- include('sidebar/sidebargenre', {genre: genre, editToggle:helpers.editToggle, isToggled: false}) %>
         </div>
         <% }) %>
       </div>
       <div id="byDirector">
         <h2>Director</h2>
-        <% directors.forEach((director, index) => { %>
+        <% directors.forEach((director, index) => { %> 
+        <% const isToggled = (index === activeDirector) %>
          <div class="sidebarCells">
-          <%- include('sidebar/sidebardirector', {director: director, isToggled: false}) %>
+          <%- include('sidebar/sidebardirector', 
+            {director: director,
+            isToggled:isToggled,
+            editToggle:helpers.editToggle(isToggled) }) %>
          </div>
         <% }) %>
       </div>
     </div>
     <div id="moviesDisplayContainer">
     <% titles.forEach((title, index) => { %>
-      
       <div class="movieCells">
         <a href="/details/<%= title.titles_id %>"><%= title.title %></a>
       </div>
     <% }) %>
     </div>
   </div>
+  <script src="/utils/helpers.js" /></script>
 </body>
 </html>

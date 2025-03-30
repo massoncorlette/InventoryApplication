@@ -1,4 +1,3 @@
-const pool = require("./pool");
 
 const { Client } = require("pg");
 
