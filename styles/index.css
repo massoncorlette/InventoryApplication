@@ -1,0 +1,156 @@
+* {
+  border: solid rgba(17, 0, 255, 0.514) 1px;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(36, 36, 36);
+  color: whitesmoke;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+#headerContainer {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  margin-left: 13%;
+  font-size: 2rem;
+}
+
+#headerContainer a {
+  justify-content: flex-start;
+}
+
+#headerTxt, h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+h1, h2  {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+
+#mainBody {
+  min-height: 100%;
+  display: flex;
+}
+
+#sidebarContainer {
+  flex: 1;
+
+}
+
+#sidebarContainer div {
+  width: 100%;
+}
+
+.sidebarCells {
+  width: 100%;
+  height: 10%;
+  padding: 5%;
+  box-sizing: border-box;
+  background-color: rgb(56, 56, 56);
+  display: flex;
+  align-items: center;
+}
+
+.sidebarCells a {
+  justify-content: flex-start;
+}
+
+.editIconContainer {
+  flex: 0;
+}
+
+.editIconButton {
+  background-color: transparent;
+}
+
+.editIconButton:hover {
+  cursor: pointer;
+}
+
+.editIcon {
+  height: 1rem;
+  fill: whitesmoke;
+  stroke: red;
+}
+
+#moviesDisplayContainer {
+  flex: 7;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#movieDetails {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movieCells {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 20%;
+  max-height: 50%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tablet */
+@media (max-width: 62.5em) {
+  
+  .movieCells {
+    width: 25%;
+  }
+  #sidebarContainer {
+    flex: 2;
+  }
+
+  #moviesDisplayContainer {
+    flex: 6;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+/* Mobile */
+@media (max-width: 51.25em) {
+
+  .movieCells {
+    width:50%;
+  }
+
+  #sidebarContainer {
+    flex: 2;
+  }
+
+  #moviesDisplayContainer {
+    flex: 5;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}
+

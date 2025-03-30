@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/index.css" />
+  <script src="../helpers.js" type="module"/></script>
+  <title>Inventory Application</title>
+</head>
+<body>
+  <div id="headerContainer">
+    <a href="/">
+      <div id="headerTxt">
+        Movies Base Network
+      </div>
+    </a>
+  </div>
+  <div id="mainBody">
+    <div id="sidebarContainer">
+      <div id="byGenre">
+        <h2>Genre</h2>
+        <% genres.forEach((genre, index) => { %>
+        <div class="sidebarCells">
+          <%- include('sidebar/sidebargenre', {genre: genre, isToggled: false}) %>
+        </div>
+        <% }) %>
+      </div>
+      <div id="byDirector">
+        <h2>Director</h2>
+        <% directors.forEach((director, index) => { %>
+         <div class="sidebarCells">
+          <%- include('sidebar/sidebardirector', {director: director, isToggled: false}) %>
+         </div>
+        <% }) %>
+      </div>
+    </div>
+    <div id="moviesDisplayContainer">
+    <% titles.forEach((title, index) => { %>
+      
+      <div class="movieCells">
+        <a href="/details/<%= title.titles_id %>"><%= title.title %></a>
+      </div>
+    <% }) %>
+    </div>
+  </div>
+</body>
+</html>
