@@ -1,7 +1,7 @@
 const express = require("express");
 const { Router } = require("express");
 const { displayTitleDetails } = require("../controllers/viewController");
-const helpers = require('../utils/helpers'); 
+const helpers = require('../public/js/helpers'); 
 
 //import controller functions to use here upon routes being used
 

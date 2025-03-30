@@ -1,15 +1,15 @@
 
-<% if (isToggled) { %>
+<% if (!(isToggled)) { %>
   <a href="/director/<%= director.director_id %>"><%= director.name %></a>
   <div class="editIconContainer">
-  <button class="editIconButton" onclick="() => editToggle(isToggled)">
+  <button class="editIconButton" onclick="editToggle; location.reload();">
     <img class="editIcon" src="/editpen.svg" />
   </button>
   </div>
 
 <% } else  { %>
 
-  <div>test</div>
+  <div>active to edit</div>
 
 <% } %>
 

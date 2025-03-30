@@ -28,14 +28,14 @@
       <div id="byDirector">
         <h2>Director</h2>
         <% directors.forEach((director, index) => { %> 
-        <% const isToggled = (index === activeDirector) %>
-         <div class="sidebarCells">
-          <%- include('sidebar/sidebardirector', 
-            {director: director,
-            isToggled:isToggled,
-            editToggle:helpers.editToggle(isToggled) }) %>
-         </div>
-        <% }) %>
+          <div class="sidebarCells">
+            <%- include('sidebar/sidebardirector', {
+              director: director,
+              isToggled: (index === activeDirector),
+              editToggle: helpers.editToggle((index === activeDirector), activeDirector, index)
+            }) %>
+          </div>
+        <% }) %>        
       </div>
     </div>
     <div id="moviesDisplayContainer">
@@ -46,6 +46,6 @@
     <% }) %>
     </div>
   </div>
-  <script src="/utils/helpers.js" /></script>
+  <script src="/js/helpers.js"></script>
 </body>
 </html>

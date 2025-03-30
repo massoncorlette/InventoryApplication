@@ -1,11 +1,7 @@
 
-function editToggle(toggle) {
+function editToggle(toggle, activeDirector, index, ) {
 
-  if (toggle) {
-    return false;
-  } else {
-    return true;
-  }
+  console.log(true);
 }
 
 const colors = {
