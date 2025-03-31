@@ -28,7 +28,6 @@ async function getTitlesByDirector(directorID) {
 }
 
 async function getTitleDetails(titleID) {
-  console.log(titleID);
   const title = await pool.query("SELECT * FROM titles WHERE titles_id = $1", [`${titleID}`]);
   const titleDetails = title.rows[0] ;
   const titleName = title.rows[0].title;
