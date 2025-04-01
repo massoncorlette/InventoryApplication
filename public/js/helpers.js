@@ -1,8 +1,9 @@
 // browser side helpers go here
 
 
-function editToggle(activeDirector, index, ) {
-  console.log("fire");
+function editToggle(activeDirector, index) {
+
+  console.log("test");
 }
 
 const colors = {
@@ -13,4 +14,3 @@ const colors = {
 };
 
 
-module.exports = { editToggle, colors}

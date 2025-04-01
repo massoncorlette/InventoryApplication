@@ -21,7 +21,7 @@
         <h2>Genre</h2>
         <% genres.forEach((genre, index) => { %>
         <div class="sidebarCells">
-          <%- include('sidebar/sidebargenre', {genre: genre, editToggle:editToggle, isToggled: false}) %>
+          <%- include('sidebar/sidebargenre', {genre: genre, isToggled: false}) %>
         </div>
         <% }) %>
       </div>
@@ -31,10 +31,10 @@
           <div class="sidebarCells">
             <%- include('sidebar/sidebardirector', {
               director: director,
+              activeDirector,
               isToggled: (index === activeDirector),
-              activeDirector: activeDirector,
-              index: index,
-              editToggle
+
+              index: index
             }) %>
           </div>
         <% }) %>        
@@ -48,5 +48,6 @@
     <% }) %>
     </div>
   </div>
+  <script src="js/helpers.js"></script>
 </body>
 </html>
