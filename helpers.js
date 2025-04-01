@@ -2,9 +2,7 @@
 
 
 function editToggle(activeDirector, index, ) {
-
-  activeDirector = index;
-  console.log(activeDirector);
+  console.log("fire");
 }
 
 const colors = {
