@@ -45,6 +45,20 @@ h1, h2  {
   justify-content: center;
 }
 
+details,
+summary {
+  display: block; 
+}
+
+summary {
+  list-style: none;   
+  cursor: pointer;   
+}
+
+details > summary::-webkit-details-marker {
+  display: none;    
+}
+
 
 #mainBody {
   min-height: 100%;
@@ -76,6 +90,11 @@ h1, h2  {
 
 .editIconContainer {
   flex: 0;
+}
+
+.editIconActive {
+  width: 100%;
+  height: 100%;
 }
 
 .editIconButton {
