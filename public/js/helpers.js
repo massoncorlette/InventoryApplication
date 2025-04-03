@@ -1,9 +1,10 @@
 // browser side helpers go here
 
 
-function editToggle(activeDirector, index) {
+function editToggle(activeDirector, index, ) {
 
-  console.log("test");
+  activeDirector = index;
+  console.log(activeDirector);
 }
 
 const colors = {
@@ -14,3 +15,25 @@ const colors = {
 };
 
 
+
+document.addEventListener("DOMContentLoaded",
+  () => {
+  
+    function editToggle() {
+      const sideBarCells = document.getElementsByClassName('editIconButton');
+
+
+      sideBarCells.array.forEach(element => {
+        element.addEventListener('click', () => {
+          console.log(element);
+        })
+      });
+    
+    };
+
+    editToggle();
+
+  });
+
+
+module.exports = { editToggle, colors}
