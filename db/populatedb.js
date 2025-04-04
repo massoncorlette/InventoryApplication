@@ -1,6 +1,8 @@
 
 const { Client } = require("pg");
 
+require('dotenv').config();
+
 const { argv } = require('node:process');
 
 // script here to insert dummy data upon deployment

@@ -14,20 +14,47 @@ const validateDirector = [
     .isLength({ min: 5, max: 24 }).withMessage(`Name ${lengthErr}`)
 ];
 
-
 exports.updateDirector = [
   validateDirector,
   (req, res) => {
+    console.log(req.params);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400);
       // add error message
     }
-    const { firstName, lastName, email, age, bio } = req.body;
-    db.addUser({ firstName, lastName, email, age, bio });
+    const { directorname } = req.body;
+    const { director_id } = req.params;
+    db.updateDirector( directorname, director_id );  // getting ID from parsed URL from form action value
     res.redirect("/");
   }
 ];
+
+const alphaErrAlt = "must only contain letters.";
+const lengthErrAlt = "must be between 3 and 10 characters.";
+
+const validateGenre = [
+  body("genrename").trim()
+    .isAlpha().withMessage(`Genre name ${alphaErrAlt}`)
+    .isLength({ min: 3, max: 10 }).withMessage(`Name ${lengthErrAlt}`)
+];
+
+exports.updateGenre = [
+  validateGenre,
+  (req, res) => {
+    console.log(req.params);
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400);
+      // add error message
+    }
+    const genrename  = req.body;
+    const { genre_id } = req.params;
+    db.updateGenre( genrename, genre_id );  // getting ID from parsed URL from form action value
+    res.redirect("/");
+  }
+]
+
 
 //editByGenre
 
