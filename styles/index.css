@@ -45,6 +45,38 @@ h1, h2  {
   justify-content: center;
 }
 
+
+
+.editIconActive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#mainBody {
+  min-height: 100%;
+  display: flex;
+}
+
+#sidebarContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarCells {
+  display: flex;
+}
+
+.sideBarTxtContainer {
+  flex: 2;
+}
+
+.sidebarCells:has(details[open]) .sideBarTxtContainer {
+  display: none;
+}
+
 details,
 summary {
   display: block; 
@@ -59,56 +91,11 @@ details > summary::-webkit-details-marker {
   display: none;    
 }
 
-
-#mainBody {
-  min-height: 100%;
-  display: flex;
-}
-
-#sidebarContainer {
-  flex: 1;
-
-}
-
-#sidebarContainer div {
-  width: 100%;
-}
-
-.sidebarCells {
-  width: 100%;
-  height: 10%;
-  padding: 5%;
-  box-sizing: border-box;
-  background-color: rgb(56, 56, 56);
-  display: flex;
-  align-items: center;
-}
-
-.sidebarCells a {
-  justify-content: flex-start;
-}
-
-.editIconContainer {
-  flex: 0;
-}
-
-.editIconActive {
+details:open > .editIconActive {
+  position: relative;
   width: 100%;
   height: 100%;
-}
-
-.editIconButton {
-  background-color: transparent;
-}
-
-.editIconButton:hover {
-  cursor: pointer;
-}
-
-.editIcon {
-  height: 1rem;
-  fill: whitesmoke;
-  stroke: red;
+  flex: 4;
 }
 
 #moviesDisplayContainer {
