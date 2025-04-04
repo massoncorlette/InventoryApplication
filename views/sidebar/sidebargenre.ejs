@@ -1,14 +1,16 @@
 <div class="sideBarTxtContainer">
   <a href="/genre/<%= genre.genre_id %>"><%= genre.genre %></a>
 </div>
-<div class="editIconContainer">
-   <details>
-    <summary>
-      <img class="editIcon" src="/editpen.svg" />
-    </summary>
-    
+<details>
+  <summary>
+    <img class="editIcon" src="/editpen.svg" />
+  </summary>
+  
   <div class="editIconActive">
-    <div>test</div>
+    <form action="/<%= genre.genre_id %>/updategenre" method="POST">
+      <input type="text" name="genrename" value="<%= genre.genre %>" required>
+      <button type="button">Update</button>
+      
+    </form>
   </div>
-  </details>
-</div>
+</details>
