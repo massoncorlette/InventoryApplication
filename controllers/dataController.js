@@ -42,14 +42,16 @@ const validateGenre = [
 exports.updateGenre = [
   validateGenre,
   (req, res) => {
-    console.log(req.params);
+    console.log(req.params, "test");
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400);
       // add error message
     }
-    const genrename  = req.body;
+    const { genrename }  = req.body;
+    console.log(genrename);
     const { genre_id } = req.params;
+    console.log(genre_id);
     db.updateGenre( genrename, genre_id );  // getting ID from parsed URL from form action value
     res.redirect("/");
   }
