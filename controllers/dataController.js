@@ -14,13 +14,22 @@ const validateDirector = [
     .isLength({ min: 5, max: 24 }).withMessage(`Name ${lengthErr}`)
 ];
 
+try {
+
+
+} catch {
+  
+}
+
 exports.updateDirector = [
   validateDirector,
   (req, res) => {
     console.log(req.params);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log("error");
       return res.status(400);
+
       // add error message
     }
     const { directorname } = req.body;

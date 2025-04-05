@@ -3,17 +3,17 @@
 const pool = require("./pool");
 
 async function getAllTitles() {
-  const { rows } = await pool.query("SELECT * FROM titles");
+  const { rows } = await pool.query("SELECT * FROM titles ORDER BY titles_id ASC");
   return rows;
 }
 
 async function getAllGenres() {
-  const { rows } = await pool.query("SELECT * FROM genres");
+  const { rows } = await pool.query("SELECT * FROM genres ORDER BY genre_id ASC");
   return rows;
 }
 
 async function getAllDirectors() {
-  const { rows } = await pool.query("SELECT * FROM directors");
+  const { rows } = await pool.query("SELECT * FROM directors ORDER BY director_id ASC");
   return rows;
 }
 
