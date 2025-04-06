@@ -5,70 +5,69 @@ const db = require("../db/mutations");
 
 const { body , validationResult} = require("express-validator");
 
+
 const alphaErr = "must only contain letters.";
 const lengthErr = "must be between 5 and 24 characters.";
-
-const validateDirector = [
-  body("directorname").trim()
-    .isAlpha().withMessage(`Director name ${alphaErr}`)
-    .isLength({ min: 5, max: 24 }).withMessage(`Name ${lengthErr}`)
-];
-
-try {
-
-
-} catch {
-  
-}
-
-exports.updateDirector = [
-  validateDirector,
-  (req, res) => {
-    console.log(req.params);
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      console.log("error");
-      return res.status(400);
-
-      // add error message
-    }
-    const { directorname } = req.body;
-    const { director_id } = req.params;
-    db.updateDirector( directorname, director_id );  // getting ID from parsed URL from form action value
-    res.redirect("/");
-  }
-];
 
 const alphaErrAlt = "must only contain letters.";
 const lengthErrAlt = "must be between 3 and 10 characters.";
 
-const validateGenre = [
-  body("genrename").trim()
-    .isAlpha().withMessage(`Genre name ${alphaErrAlt}`)
-    .isLength({ min: 3, max: 10 }).withMessage(`Name ${lengthErrAlt}`)
-];
 
-exports.updateGenre = [
-  validateGenre,
-  (req, res) => {
-    console.log(req.params, "test");
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400);
-      // add error message
-    }
-    const { genrename }  = req.body;
-    console.log(genrename);
-    const { genre_id } = req.params;
-    console.log(genre_id);
-    db.updateGenre( genrename, genre_id );  // getting ID from parsed URL from form action value
-    res.redirect("/");
+function validateDirector() {
+  return [
+    body("directorname").trim() 
+    .matches(/^[A-Za-z\s]+$/) // use instead of isAlpha to include spaces
+    .withMessage(`Director name ${alphaErr}`)
+    .isLength({ min: 5, max: 24 }).withMessage(`Name ${lengthErr}`)
+  ];
+};
+
+async function handleUpdateDirector(req, res) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400);
+    // add error message
   }
-]
+
+  const { directorname }  = req.body;
+  const { director_id } = req.params;
+
+  try {
+    await db.updateDirector( directorname, director_id );  // getting ID from parsed URL from form action value '
+    res.redirect("/");  
+  } catch (err){
+    res.status(500).send('error');
+  }
+}
 
 
-//editByGenre
 
-//editByDirector
+function validateGenre() {
+  return [
+    body("genrename").trim()
+    .matches(/^[A-Za-z\s]+$/)
+    .withMessage(`Genre name ${alphaErrAlt}`)
+      .isLength({ min: 3, max: 16 }).withMessage(`Name ${lengthErrAlt}`)
+  ];
+};
 
-//editByTitle
+async function handleUpdateGenre(req, res) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400);
+    // add error message
+  }
+
+  const { genrename }  = req.body;
+  const { genre_id } = req.params;
+
+  try {
+    await db.updateGenre( genrename, genre_id );  // getting ID from parsed URL from form action value '
+    res.redirect("/");  
+  } catch (err){
+    res.status(500).send('error');
+  }
+}
+
+module.exports = { handleUpdateGenre, validateGenre, handleUpdateDirector, validateDirector  };
+

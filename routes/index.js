@@ -1,7 +1,7 @@
 const express = require("express");
 const { Router } = require("express");
 const { displayTitles } = require("../controllers/viewController");
-const { updateDirector, updateGenre } = require("../controllers/dataController");
+const { handleUpdateGenre, validateGenre, handleUpdateDirector, validateDirector  } = require("../controllers/dataController");
 
 //import controller functions to use here upon routes being used
 
@@ -12,8 +12,8 @@ indexRouter.get("/", async (req, res, next) => {
   return displayTitles(req, res, next);
 });
 
-indexRouter.post("/:director_id/updatedirector", updateDirector);
-indexRouter.post("/:genre_id/updategenre", updateGenre);
+indexRouter.post("/:director_id/updatedirector", validateDirector(), handleUpdateDirector);
+indexRouter.post("/:genre_id/updategenre", validateGenre(), handleUpdateGenre);
 
 
 module.exports = indexRouter;

@@ -20,7 +20,6 @@ async function createDirector(director) {
 
 async function updateDirector(director, id) {
   await pool.query("UPDATE directors SET name = $1 WHERE director_id = $2", [director, id]);
-
 }
 
 async function deleteDirector(director,id) {
