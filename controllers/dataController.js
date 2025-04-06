@@ -25,7 +25,7 @@ function validateDirector() {
 async function handleUpdateDirector(req, res) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400);
+    res.send('error: letters and spaces only');
     // add error message
   }
 
@@ -54,7 +54,7 @@ function validateGenre() {
 async function handleUpdateGenre(req, res) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400);
+    res.send('error: letters and spaces only');
     // add error message
   }
 
