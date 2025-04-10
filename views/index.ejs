@@ -16,30 +16,7 @@
     </a>
   </div>
   <div id="mainBody">
-    <div id="sidebarContainer">
-      <div id="byGenre">
-        <h2>Genre</h2>
-        <% genres.forEach((genre, index) => { %>
-        <div class="sidebarCells">
-          <%- include('sidebar/sidebargenre', {
-            genre: genre, 
-            index: index,
-          }) %>
-        </div>
-        <% }) %>
-      </div>
-      <div id="byDirector">
-        <h2>Director</h2>
-        <% directors.forEach((director, index) => { %> 
-          <div class="sidebarCells">
-            <%- include('sidebar/sidebardirector', {
-              director: director,
-              index: index,
-            }) %>
-          </div>
-        <% }) %>        
-      </div>
-    </div>
+    <%- include("sidebar/sidebar.ejs") %>
     <div id="moviesDisplayContainer">
     <% titles.forEach((title, index) => { %>
       <div class="movieCells">
