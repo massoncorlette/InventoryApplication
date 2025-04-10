@@ -1,26 +1,9 @@
 //controller for data mutations
 //DATA MUST GO THROUGH EXPRESS VALIDATOR CHAIN
 
-const db = require("../db/mutations");
+const db = require("../../db/mutations");
 
-const { body , validationResult} = require("express-validator");
-
-
-const alphaErr = "must only contain letters.";
-const lengthErr = "must be between 5 and 24 characters.";
-
-const alphaErrAlt = "must only contain letters.";
-const lengthErrAlt = "must be between 3 and 10 characters.";
-
-
-function validateDirector() {
-  return [
-    body("directorname").trim() 
-    .matches(/^[A-Za-z\s]+$/) // use instead of isAlpha to include spaces
-    .withMessage(`Director name ${alphaErr}`)
-    .isLength({ min: 5, max: 24 }).withMessage(`Name ${lengthErr}`)
-  ];
-};
+const { validationResult} = require("express-validator");
 
 async function handleUpdateDirector(req, res) {
   const errors = validationResult(req);
@@ -41,14 +24,6 @@ async function handleUpdateDirector(req, res) {
   }
 };
 
-function validateGenre() {
-  return [
-    body("genrename").trim()
-    .matches(/^[A-Za-z\s]+$/)
-    .withMessage(`Genre name ${alphaErrAlt}`)
-      .isLength({ min: 3, max: 16 }).withMessage(`Name ${lengthErrAlt}`)
-  ];
-};
 
 async function handleUpdateGenre(req, res) {
   const errors = validationResult(req);
@@ -69,5 +44,5 @@ async function handleUpdateGenre(req, res) {
   }
 }
 
-module.exports = { handleUpdateGenre, validateGenre, handleUpdateDirector, validateDirector  };
+module.exports = { handleUpdateGenre, handleUpdateDirector  };
 

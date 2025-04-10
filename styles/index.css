@@ -54,6 +54,10 @@ h1, h2  {
   align-items: center;
 }
 
+.addSideBarSection {
+  display: flex;
+  justify-content: center;
+}
 
 #mainBody {
   min-height: 100%;
