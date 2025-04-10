@@ -60,6 +60,30 @@ h1, h2  {
   display: flex;
 }
 
+#mainBodyAlt {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+}
+
+#errorMessageTxt {
+  font-size: 1.5rem;
+  color: rgb(209, 0, 0);
+}
+
+#errorMessageContainer {
+  color: rgb(228, 228, 228);
+  font-style: italic;
+  font-size: 1.2rem;
+  width: 50%;
+}
+
+#errorMessageContainer a {
+  color: rgb(82, 82, 255);
+  font-weight: 600;
+}
+
 #sidebarContainer {
   flex: 1;
   display: flex;

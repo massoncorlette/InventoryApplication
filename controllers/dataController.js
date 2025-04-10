@@ -25,8 +25,9 @@ function validateDirector() {
 async function handleUpdateDirector(req, res) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    res.send('error: letters and spaces only');
-    // add error message
+    return res.status(400).render("error", {
+      errors: errors.array(),
+    });
   }
 
   const { directorname }  = req.body;
@@ -38,9 +39,7 @@ async function handleUpdateDirector(req, res) {
   } catch (err){
     res.status(500).send('error');
   }
-}
-
-
+};
 
 function validateGenre() {
   return [
@@ -54,8 +53,9 @@ function validateGenre() {
 async function handleUpdateGenre(req, res) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    res.send('error: letters and spaces only');
-    // add error message
+    return res.status(400).render("error", {
+      errors: errors.array(),
+    });
   }
 
   const { genrename }  = req.body;
