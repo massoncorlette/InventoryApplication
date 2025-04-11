@@ -4,18 +4,13 @@ const db = require("../../db/mutations");
 const { validationResult} = require("express-validator");
 
 async function handleCreateTitle(req, res, next) {
+
+  console.log("test");
+  console.log(req.params);
   
-  const { director_id} = req.params;
+  const { type } = req.params;
 
-  const { genre_id} = req.params;
-
-  if (director_id !== null) {
-    console.log(director_id);
-  } else if (genre_id !== null) {
-    console.log(genre_id);
-  } else {
-    console.log("nothing")
-  }
+  console.log(type);
 
 }
 

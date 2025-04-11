@@ -18,14 +18,14 @@
   <div id="mainBody">
     <%- include("sidebar/sidebar.ejs") %>
     <div id="addtitleformDisplayContainer">
-      <form method="POST" action="/newtitle">
+      <form method="POST" action="/createtitle">
         <fieldset>
           <legend>Add a title</legend>
           <div class="formEntries">
-            <input placeholder="enter username" type="text"  name="newtitle" required><br>
+            <input placeholder="Enter Title" type="text"  name="createtitle" required><br>
           </div>
           <div class="formEntries">
-            <input type="text" name="titletext" placeholder="enter description/review" required><br>
+            <input type="text" name="titletext" placeholder="Enter Description/Review"><br>
             <input id="submitBtn" type="submit" value="Send">
           </div>
         </fieldset>

@@ -1,6 +1,8 @@
 const express = require("express");
 const { Router } = require("express");
 const { displayByGenre } = require("../controllers/viewController");
+const { validateTitle } = require("../controllers/validation");
+const { handleCreateTitle } = require("../controllers/dataController/createController");
 
 //import controller functions to use here upon routes being used
 
@@ -11,6 +13,7 @@ genreRouter.get("/:genre", async (req, res, next) => {
   return displayByGenre(req, res, next);
 });
 
-//add post route for titles from add title page
+genreRouter.post("/:createtitle", validateTitle(), handleCreateTitle)
+
 
 module.exports = genreRouter;

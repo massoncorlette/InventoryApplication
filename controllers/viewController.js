@@ -12,7 +12,7 @@ async function displayTitles(req, res, next ) {
 async function displayAddTitle(req, res, next) {
   const genres = await db.getAllGenres();
   const directors = await db.getAllDirectors();
-  res.render("addtitle", { genres:genres, directors:directors, });
+  res.render("createtitle", { genres:genres, directors:directors, });
 };
 
 async function displayByGenre(req, res, next ) {
