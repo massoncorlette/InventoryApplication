@@ -15,7 +15,7 @@ async function deleteTitle(title,id) {
 }
 
 async function createDirector(director) {
-
+  await pool.query("INSERT INTO directors(name) VALUES ($1)", [director]);
 }
 
 async function updateDirector(director, id) {
@@ -27,6 +27,7 @@ async function deleteDirector(director,id) {
 }
 
 async function createGenre(genre) {
+  await pool.query("INSERT INTO genres(genre) VALUES ($1)", [genre]);
 
 }
 
