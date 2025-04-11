@@ -9,6 +9,12 @@ async function displayTitles(req, res, next ) {
   res.render("index", {titles:titles, genres:genres, directors:directors, });
 };
 
+async function displayAddTitle(req, res, next) {
+  const genres = await db.getAllGenres();
+  const directors = await db.getAllDirectors();
+  res.render("addtitle", { genres:genres, directors:directors, });
+};
+
 async function displayByGenre(req, res, next ) {
   const titles = await db.getTitlesByGenre(req.params.genre);
   const genres = await db.getAllGenres();
@@ -30,4 +36,4 @@ async function displayTitleDetails(req, res, next) {
   res.render("details", {titleDetails:titleDetails, genres:genres, directors:directors});
 };
 
-module.exports = {displayTitles, displayByGenre, displayByDirector, displayTitleDetails};
+module.exports = {displayTitles, displayAddTitle, displayByGenre, displayByDirector, displayTitleDetails};

@@ -133,6 +133,12 @@ details:open > .editIconActive {
   flex-wrap: wrap;
 }
 
+#addtitleformDisplayContainer {
+  flex: 7;
+  display: flex;
+  justify-content: center;
+}
+
 #movieDetails {
   flex: 1;
   height: 100%;
@@ -142,7 +148,16 @@ details:open > .editIconActive {
   align-items: center;
 }
 
-.movieCells {
+#addMovieBtn {
+  background-color: transparent;
+}
+
+#addMovieBtn:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.movieCells, #addMovieContainer {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-size: 1.2rem;
@@ -169,6 +184,12 @@ details:open > .editIconActive {
     display: flex;
     flex-wrap: wrap;
   }
+
+  #addtitleformDisplayContainer {
+    flex: 6;
+    display: flex;
+    justify-content: center;
+  }
 }
 /* Mobile */
 @media (max-width: 51.25em) {
@@ -185,6 +206,12 @@ details:open > .editIconActive {
     flex: 5;
     display: flex;
     flex-wrap: wrap;
+  }
+
+  #addtitleformDisplayContainer {
+    flex: 5;
+    display: flex;
+    justify-content: center;
   }
 
 }

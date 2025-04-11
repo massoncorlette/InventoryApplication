@@ -43,8 +43,7 @@ document.addEventListener("DOMContentLoaded",
           });
         }
       });
-    }
-
+    };
 
     toggleDetailsElements();
     editToggle();

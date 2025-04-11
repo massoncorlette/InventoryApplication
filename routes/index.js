@@ -1,6 +1,6 @@
 const express = require("express");
 const { Router } = require("express");
-const { displayTitles } = require("../controllers/viewController");
+const { displayTitles, displayAddTitle } = require("../controllers/viewController");
 const { handleUpdateGenre, handleUpdateDirector  } = require("../controllers/dataController/dataController");
 const { handleCreateGenre, handleCreateDirector } = require("../controllers/dataController/createController");
 const { validateDirector, validateGenre, validateDirectorAdd, validateGenreAdd } = require("../controllers/validation");
@@ -13,6 +13,10 @@ indexRouter.use(express.urlencoded({extended: true}));
 indexRouter.get("/", async (req, res, next) => {
   return displayTitles(req, res, next);
 });
+
+indexRouter.get("/:addtitle", async (req, res, next) => {
+  return displayAddTitle(req, res, next);
+})
 
 indexRouter.post("/:director_id/updatedirector", validateDirector(), handleUpdateDirector);
 indexRouter.post("/:genre_id/updategenre", validateGenre(), handleUpdateGenre);

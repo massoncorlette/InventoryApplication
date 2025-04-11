@@ -17,17 +17,19 @@
   </div>
   <div id="mainBody">
     <%- include("sidebar/sidebar.ejs") %>
-    <div id="moviesDisplayContainer">
-    <% titles.forEach((title, index) => { %>
-      <div class="movieCells">
-        <a href="/details/<%= title.titles_id %>"><%= title.title %></a>
-      </div>
-    <% }) %>
-      <div id="addMovieContainer">
-        <a id="addMovieBtn" href="/addtitle">
-          <img class="addMovieIcon" src="/addcircle.png" />
-        </a>
-      </div>
+    <div id="addtitleformDisplayContainer">
+      <form method="POST" action="/newtitle">
+        <fieldset>
+          <legend>Add a title</legend>
+          <div class="formEntries">
+            <input placeholder="enter username" type="text"  name="newtitle" required><br>
+          </div>
+          <div class="formEntries">
+            <input type="text" name="titletext" placeholder="enter description/review" required><br>
+            <input id="submitBtn" type="submit" value="Send">
+          </div>
+        </fieldset>
+      </form>
     </div>
   </div>
   <script src="/js/helpers.js"></script>
