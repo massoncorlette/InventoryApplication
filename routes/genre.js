@@ -13,7 +13,6 @@ genreRouter.get("/:genre", async (req, res, next) => {
   return displayByGenre(req, res, next);
 });
 
-genreRouter.post("/:createtitle", validateTitle(), handleCreateTitle)
 
 
 module.exports = genreRouter;

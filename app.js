@@ -20,7 +20,7 @@ app.use("/", indexRouter);
 app.use("/genre", genreRouter);
 app.use("/director", directorRouter);
 app.use("/details", detailsRouter);
-app.use("/createtitle", titleRouter);
+app.use("/:datatype/createtitle", titleRouter);
 //route for edit/add title
 
 
