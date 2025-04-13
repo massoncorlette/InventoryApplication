@@ -8,9 +8,9 @@ async function handleCreateTitle(req, res, next) {
   console.log("test");
   console.log(req.params);
   
-  const { type } = req.params;
+  const { datatype } = req.params;
 
-  console.log(type);
+  console.log(datatype);
 
 }
 

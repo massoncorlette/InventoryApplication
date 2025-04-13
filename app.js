@@ -14,13 +14,13 @@ const indexRouter = require("./routes/index");
 const genreRouter = require("./routes/genre");
 const directorRouter = require("./routes/director");
 const detailsRouter = require("./routes/details");
-const titleRouter = require("./routes/createtitle");
+const newTitleRouter = require("./routes/createtitle");
 
 app.use("/", indexRouter);
 app.use("/genre", genreRouter);
 app.use("/director", directorRouter);
 app.use("/details", detailsRouter);
-app.use("/:datatype/createtitle", titleRouter);
+app.use("*/createtitle", newTitleRouter);
 //route for edit/add title
 
 
