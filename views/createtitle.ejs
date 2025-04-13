@@ -23,11 +23,12 @@
           <legend>Add a title</legend>
           <div class="formEntries">
             <% console.log(req.originalUrl) %>
+            <%  const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
       
-            <input placeholder="Enter Title" type="text"  name="createtitle" required><br>
+            <input placeholder="Update Data For <%= urlParts[2] %>" type="text"  name="createtitle" required><br>
           </div>
           <div class="formEntries">
-            <input type="text" name="titletext" placeholder="Enter Description/Review"><br>
+            <input type="text" name="titletext" placeholder="Enter Description" >
             <input id="submitBtn" type="submit" value="Send">
           </div>
         </fieldset>
