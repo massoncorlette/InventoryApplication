@@ -38,12 +38,19 @@ async function getTitleDetails(titleID) {
   return {titleName, genreName, directorName};
 }
 
+async function getColumnValue(table, column, ID, IDtype) {
+  const name = await pool.query(`SELECT ${column} FROM ${table} WHERE $1 = $2`, [ ID, IDtype]);
+  console.log(name);
+  return name;
+}
+
 module.exports = {
   getAllTitles,
   getAllGenres,
   getAllDirectors,
   getTitlesByGenre,
   getTitlesByDirector,
-  getTitleDetails
+  getTitleDetails,
+  getColumnValue
 };
 
