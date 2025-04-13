@@ -40,7 +40,6 @@ async function getTitleDetails(titleID) {
 
 async function getColumnValue(table, column, ID, IDtype) {
   const name = await pool.query(`SELECT ${column} FROM ${table} WHERE ${IDtype} = $1`, [`${ID}`]);
-  console.log(name)
   if (IDtype === "genre_id") {
     nameValue = name.rows[0].genre;
   } else {

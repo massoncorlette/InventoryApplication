@@ -2,8 +2,14 @@
 const pool = require("./pool");
 
 
-async function createTitle(title) {
+async function createTitle(title, req) {
+  console.log(req.url);
+  const urlParts = req.path.split('/').map(part => decodeURIComponent(part));
+
+  
+
   await pool.query("INSERT INTO titles (title) VALUES ($1)", [title]);
+  
 }
 
 async function updateTitle(title, id) {

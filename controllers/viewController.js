@@ -6,7 +6,7 @@ async function displayTitles(req, res, next ) {
   const titles = await db.getAllTitles();
   const genres = await db.getAllGenres();
   const directors = await db.getAllDirectors();
-  const inputPlaceHolder = "All"
+  const inputPlaceHolder = "all Title data"
   res.render("index", {titles:titles, genres:genres, directors:directors, req:req, namevalue:inputPlaceHolder});
 };
 
