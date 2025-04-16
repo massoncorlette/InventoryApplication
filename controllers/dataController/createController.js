@@ -1,7 +1,7 @@
 
 const db = require("../../db/mutations");
 
-const { validationResult} = require("express-validator");
+const { validationResult } = require("express-validator");
 
 async function handleCreateTitle(req, res, next) {
   const errors = validationResult(req);
@@ -13,13 +13,14 @@ async function handleCreateTitle(req, res, next) {
 
   const { titletext }  = req.body;
 
+
   try {
     await db.createTitle( titletext, req );  // getting ID from parsed URL from form action value '
     res.redirect("/");  
   } catch (err){
     res.status(500).send('error');
   }
-}
+};
 
 async function handleCreateGenre(req, res, next) {
   const errors = validationResult(req);
@@ -37,6 +38,7 @@ async function handleCreateGenre(req, res, next) {
   } catch (err){
     res.status(500).send('error');
   }
+
 };
 
 async function handleCreateDirector(req, res, next) {

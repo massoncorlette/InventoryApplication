@@ -17,9 +17,9 @@ indexRouter.get("/", async (req, res, next) => {
 indexRouter.post("/:director_id/updatedirector", validateDirector(), handleUpdateDirector);
 indexRouter.post("/:genre_id/updategenre", validateGenre(), handleUpdateGenre);
 
-indexRouter.post("/:datatype/createtitle", validateTitle(), handleCreateTitle);
 indexRouter.post("/adddirector", validateDirectorAdd(), handleCreateDirector);
 indexRouter.post("/addgenre", validateGenreAdd(), handleCreateGenre);
+indexRouter.post("/:datatype/:datavalue/createtitle", validateTitle(), handleCreateTitle);
 
 
 module.exports = indexRouter;

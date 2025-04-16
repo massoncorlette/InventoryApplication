@@ -3,13 +3,16 @@ const pool = require("./pool");
 
 
 async function createTitle(title, req) {
-  console.log(req.url);
-  const urlParts = req.path.split('/').map(part => decodeURIComponent(part));
 
-  
 
   await pool.query("INSERT INTO titles (title) VALUES ($1)", [title]);
-  
+
+  console.log(req.params)
+
+
+  //need to pull key value here to upate title ID properties in titles table if for genre or directors
+
+
 }
 
 async function updateTitle(title, id) {
