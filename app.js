@@ -4,8 +4,7 @@ const path = require("node:path");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: true }));  //enables body data to be parsed in dataController.js middleware clean sanitize 
-
+app.use(express.urlencoded({ extended: true })); //enables body data to be parsed in dataController.js middleware clean sanitize
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/styles"));
@@ -22,7 +21,6 @@ app.use("/director", directorRouter);
 app.use("/details", detailsRouter);
 app.use("*/createtitle", newTitleRouter);
 //route for edit/add title
-
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

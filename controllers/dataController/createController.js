@@ -1,4 +1,3 @@
-
 const db = require("../../db/mutations");
 
 const { validationResult } = require("express-validator");
@@ -11,16 +10,15 @@ async function handleCreateTitle(req, res, next) {
     });
   }
 
-  const { titletext }  = req.body;
-
+  const { titletext } = req.body;
 
   try {
-    await db.createTitle( titletext, req );  // getting ID from parsed URL from form action value '
-    res.redirect("/");  
-  } catch (err){
-    res.status(500).send('error');
+    await db.createTitle(titletext, req); // getting ID from parsed URL from form action value '
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send("error");
   }
-};
+}
 
 async function handleCreateGenre(req, res, next) {
   const errors = validationResult(req);
@@ -30,16 +28,15 @@ async function handleCreateGenre(req, res, next) {
     });
   }
 
-  const { addgenre }  = req.body;
+  const { addgenre } = req.body;
 
   try {
-    await db.createGenre( addgenre );  // getting ID from parsed URL from form action value '
-    res.redirect("/");  
-  } catch (err){
-    res.status(500).send('error');
+    await db.createGenre(addgenre); // getting ID from parsed URL from form action value '
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send("error");
   }
-
-};
+}
 
 async function handleCreateDirector(req, res, next) {
   const errors = validationResult(req);
@@ -49,17 +46,14 @@ async function handleCreateDirector(req, res, next) {
     });
   }
 
-  const { adddirector }  = req.body;
+  const { adddirector } = req.body;
 
   try {
-    await db.createDirector( adddirector );  // getting ID from parsed URL from form action value '
-    res.redirect("/");  
-  } catch (err){
-    res.status(500).send('error');
+    await db.createDirector(adddirector); // getting ID from parsed URL from form action value '
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send("error");
   }
-};
+}
 
-
-
-
-module.exports = { handleCreateTitle, handleCreateGenre, handleCreateDirector};
+module.exports = { handleCreateTitle, handleCreateGenre, handleCreateDirector };

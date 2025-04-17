@@ -7,7 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node db/populatedb.js",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "format:css": "prettier --write \"**/*.css\"",
+    "format:js": "prettier --write \"**/*.{js,jsx}\"",
+    "format": "npm run format:css && npm run format:js",
+    "check:css": "prettier --check \"**/*.css\"",
+    "check:js": "prettier --check \"**/*.{js,jsx}\"",
+    "check": "npm run check:css && npm run check:js"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +28,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
-    "eslint": "^9.23.0",
-    "globals": "^16.0.0"
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "prettier": "3.5.3"
   }
 }

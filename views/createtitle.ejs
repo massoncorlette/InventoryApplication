@@ -19,15 +19,17 @@
     <%- include("sidebar/sidebar.ejs") %>
     <div id="addtitleformDisplayContainer">
       <% const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
-      <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/createtitle" method="POST">
+      <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/createtitle" method="POST" id="addForm">
         <fieldset>
-          <legend>Add a title</legend>
-          <div class="formEntries">      
-            <input placeholder="Update Data for <%= urlParts[2] %>" type="text"  name="titletext" required><br>
+          <legend>Add a title and description</legend>
+          <div id="formEntryTitle">      
+            <input id="title" placeholder="Update Data for <%= urlParts[2] %>" type="text"  name="titletext" required><br>
           </div>
-          <div class="formEntries">
-            <input type="text" name="descriptiontext" placeholder="Enter Description" >
-            <input id="submitBtn" type="submit" value="Send">
+          <div id="formEntryDescription">
+            <textarea placeholder="Enter Description" id="description" type="text" name="descriptiontext" > </textarea>
+          </div>
+          <div id="submitBtnAddTitle">
+            <button type="submit" value="Send">Add Movie</button>
           </div>
         </fieldset>
       </form>

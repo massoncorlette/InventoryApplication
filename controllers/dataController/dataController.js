@@ -3,7 +3,7 @@
 
 const db = require("../../db/mutations");
 
-const { validationResult} = require("express-validator");
+const { validationResult } = require("express-validator");
 
 async function handleUpdateDirector(req, res) {
   const errors = validationResult(req);
@@ -13,17 +13,16 @@ async function handleUpdateDirector(req, res) {
     });
   }
 
-  const { directorname }  = req.body;
+  const { directorname } = req.body;
   const { director_id } = req.params;
 
   try {
-    await db.updateDirector( directorname, director_id );  // getting ID from parsed URL from form action value '
-    res.redirect("/");  
-  } catch (err){
-    res.status(500).send('error');
+    await db.updateDirector(directorname, director_id); // getting ID from parsed URL from form action value '
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send("error");
   }
-};
-
+}
 
 async function handleUpdateGenre(req, res) {
   const errors = validationResult(req);
@@ -33,16 +32,15 @@ async function handleUpdateGenre(req, res) {
     });
   }
 
-  const { genrename }  = req.body;
+  const { genrename } = req.body;
   const { genre_id } = req.params;
 
   try {
-    await db.updateGenre( genrename, genre_id );  // getting ID from parsed URL from form action value '
-    res.redirect("/");  
-  } catch (err){
-    res.status(500).send('error');
+    await db.updateGenre(genrename, genre_id); // getting ID from parsed URL from form action value '
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send("error");
   }
 }
 
-module.exports = { handleUpdateGenre, handleUpdateDirector  };
-
+module.exports = { handleUpdateGenre, handleUpdateDirector };

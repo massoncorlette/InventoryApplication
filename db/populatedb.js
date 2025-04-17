@@ -1,12 +1,10 @@
-
 const { Client } = require("pg");
 
-require('dotenv').config();
+require("dotenv").config();
 
-const { argv } = require('node:process');
+const { argv } = require("node:process");
 
 // script here to insert dummy data upon deployment
-
 
 const DefaultSQL = `
 
@@ -58,9 +56,8 @@ async function main() {
   console.log("seeding...");
   const client = new Client({
     connectionString: argv[2] || process.env.DATABASE_URL,
-    
   });
-  
+
   await client.connect();
   await client.query(DefaultSQL);
   await client.end();
