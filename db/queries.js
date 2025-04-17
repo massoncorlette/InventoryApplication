@@ -46,7 +46,15 @@ async function getColumnValue(table, column, ID, IDtype) {
     nameValue = name.rows[0].name;
   }
   return nameValue;
-}
+};
+
+async function getColumnId(IDtype, table, column, name) {
+  const IDvalue = await pool.query(`SELECT ${IDtype} FROM ${table} WHERE ${column} = $1`, [`${name}`]);
+
+  return IDvalue.rows[0];
+
+};
+
 
 module.exports = {
   getAllTitles,
@@ -55,6 +63,7 @@ module.exports = {
   getTitlesByGenre,
   getTitlesByDirector,
   getTitleDetails,
-  getColumnValue
+  getColumnValue,
+  getColumnId
 };
 

@@ -1,17 +1,22 @@
 //for updating data
 const pool = require("./pool");
+const queries = require("./queries");
 
 
-async function createTitle(title, req) {
 
+async function createTitle(title,req) {
 
-  await pool.query("INSERT INTO titles (title) VALUES ($1)", [title]);
+  if (req.params.datatype == "genreadd")
+  {
+    const result = await queries.getColumnId("genre_id","genres", "genre", req.params.datavalue);
+    await pool.query("INSERT INTO titles (title, genre_id) VALUES ($1, $2)", [title, result.genre_id]);
 
-  console.log(req.params)
-
-
-  //need to pull key value here to upate title ID properties in titles table if for genre or directors
-
+  } else if (req.params.datatype = "directoradd") {
+    const result = await queries.getColumnId("director_id","directors", "name", req.params.datavalue);
+    await pool.query("INSERT INTO titles (title, director_id) VALUES ($1, $2)", [title, result.director_id]);
+  } else {
+    await pool.query("INSERT INTO titles (title) VALUES ($1)", [title]);
+  }
 
 }
 
