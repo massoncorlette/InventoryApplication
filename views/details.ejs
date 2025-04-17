@@ -21,9 +21,16 @@
     <div id="moviesDisplayContainer">
       <div id="movieDetails">
         <div><%= titleDetails.titleName %></div>
-        <div><%= titleDetails.genreName %></div> 
-        <div><%= titleDetails.directorName %></div>
+      
+        <% if (titleDetails.genreName !== null) { %>
+          <div><%= titleDetails.genreName %></div>
+        <% } %>
+      
+        <% if (titleDetails.directorName !== null) { %>
+          <div><%= titleDetails.directorName %></div>
+        <% } %>
       </div>
+      
     </div>
   </div>
   <script src="/js/helpers.js"></script>
