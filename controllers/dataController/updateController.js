@@ -15,10 +15,21 @@ async function handleUpdateTitle(req, res) {
     });
   }
 
-  const { directorname, genrename } = req.body;
+  console.log(req.path);
+
+  const { titletext, descriptiontext, directorname, genrename } = req.body;
+  const { titleid } = req.params;
+
+  try {
+    await db.updateTitle(titletext, descriptiontext, titleid, directorname, genrename);
+    res.redirect("/");
+
+  } catch (err) {
+    res.status(500).send("error");
+  }
 
 
-  console.log(directorname, genrename);
+  console.log(directorname, genrename, titleid);
 }
 
 

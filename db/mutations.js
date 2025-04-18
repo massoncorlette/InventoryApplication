@@ -39,8 +39,21 @@ async function createTitle(title, descriptiontext, req) {
   }
 }
 
-async function updateTitle(title, description, id) {
-  await pool.query("UPDATE titles SET title = $1 WHERE id = $2", [title, id]);
+async function updateTitle(title, description, id, director, genre) {
+  await pool.query("UPDATE titles SET title = $1 ,description = $2 WHERE titles_id = $3", [title, description, id]);
+
+  const genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
+  const directorID = await queries.getColumnId("director_id", "directors", "name", director);
+
+  console.log(genreID, directorID);
+
+  if (genreID) {
+    await pool.query("UPDATE titles SET genre_id = $1 WHERE titles_id = $2", [genreID, id])
+  }
+
+  if (directorID) {
+    await pool.query("UPDATE titles SET director_id = $1 WHERE titles_id = $2", [directorID, id])
+  }
 }
 
 async function deleteTitle(title, id) {}

@@ -18,9 +18,8 @@
   <div id="mainBody">
     <%- include("sidebar/sidebar.ejs") %>
     <div id="edittitleformDisplayContainer">
-      <% const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
-      <% console.log(titleDetails) %>
-      <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/edittitle" method="POST" id="editForm">
+      <% const titleid = req.params.titleid %>
+      <form action="/<%= titleid %>/edittitle" method="POST" id="editForm">
         <fieldset>
           <legend>Edit title and details</legend>
           <div id="formEntryTitle">      

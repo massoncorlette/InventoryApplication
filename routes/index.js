@@ -43,6 +43,6 @@ indexRouter.post(
   validateTitle(),
   handleCreateTitle,
 );
-indexRouter.post("/:datatype/:dataid/edittitle", validateTitleEdit(), handleUpdateTitle)
+indexRouter.post("/:titleid/edittitle", validateTitleEdit(), handleUpdateTitle)
 
 module.exports = indexRouter;
