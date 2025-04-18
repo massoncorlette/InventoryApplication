@@ -48,6 +48,8 @@ async function getTitleDetails(titleID) {
   ]);
   const titleDetails = title.rows[0];
   const titleName = title.rows[0].title;
+  const titleId = title.rows[0].titles_id;
+  const titleDescription = title.rows[0].description;
 
   console.log(title.rows[0].director_id);
 
@@ -65,7 +67,7 @@ async function getTitleDetails(titleID) {
     genreName = genre.rows[0].genre;
   }
 
-  return { titleName, directorName, genreName };
+  return { titleName, titleId, titleDescription, directorName, genreName };
 }
 
 async function getColumnValue(table, column, ID, IDtype) {

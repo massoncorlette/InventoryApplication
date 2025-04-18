@@ -2,7 +2,15 @@
 const pool = require("./pool");
 const queries = require("./queries");
 
-async function createTitle(title, req) {
+async function createTitle(title, descriptiontext, req) {
+
+  if (descriptiontext == null) {
+    descriptiontext = " ";
+  }
+
+  console.log(title);
+  console.log(descriptiontext);
+
   if (req.params.datatype == "genreadd") {
     const result = await queries.getColumnId(
       "genre_id",
@@ -10,8 +18,9 @@ async function createTitle(title, req) {
       "genre",
       req.params.datavalue,
     );
-    await pool.query("INSERT INTO titles (title, genre_id) VALUES ($1, $2)", [
+    await pool.query("INSERT INTO titles (title, description ,genre_id) VALUES ($1, $2, $3)", [
       title,
+      descriptiontext,
       result.genre_id,
     ]);
   } else if ((req.params.datatype = "directoradd")) {
@@ -22,15 +31,15 @@ async function createTitle(title, req) {
       req.params.datavalue,
     );
     await pool.query(
-      "INSERT INTO titles (title, director_id) VALUES ($1, $2)",
-      [title, result.director_id],
+      "INSERT INTO titles (title, description, director_id) VALUES ($1, $2, $3)",
+      [title, descriptiontext, result.director_id],
     );
   } else {
-    await pool.query("INSERT INTO titles (title) VALUES ($1)", [title]);
+    await pool.query("INSERT INTO titles (title, description) VALUES ($1, $2)", [title, descriptiontext]);
   }
 }
 
-async function updateTitle(title, id) {
+async function updateTitle(title, description, id) {
   await pool.query("UPDATE titles SET title = $1 WHERE id = $2", [title, id]);
 }
 

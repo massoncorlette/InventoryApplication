@@ -22,6 +22,15 @@ async function displayAddTitle(req, res, next) {
   res.render("createtitle", { genres: genres, directors: directors, req: req });
 }
 
+async function displayEditTitle(req, res, next) {
+  const genres = await db.getAllGenres();
+  const directors = await db.getAllDirectors();
+
+  console.log(req.params);
+  
+  res.render("edittitle", { genres: genres, directors: directors, req: req });
+}
+
 async function displayByGenre(req, res, next) {
   const titles = await db.getTitlesByGenre(req.params.genre);
   const genres = await db.getAllGenres();
@@ -75,6 +84,7 @@ async function displayTitleDetails(req, res, next) {
 module.exports = {
   displayTitles,
   displayAddTitle,
+  displayEditTitle,
   displayByGenre,
   displayByDirector,
   displayTitleDetails,

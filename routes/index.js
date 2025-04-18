@@ -2,9 +2,10 @@ const express = require("express");
 const { Router } = require("express");
 const { displayTitles } = require("../controllers/viewController");
 const {
+  handleUpdateTitle,
   handleUpdateGenre,
   handleUpdateDirector,
-} = require("../controllers/dataController/dataController");
+} = require("../controllers/dataController/updateController");
 const {
   handleCreateTitle,
   handleCreateGenre,
@@ -41,5 +42,6 @@ indexRouter.post(
   validateTitle(),
   handleCreateTitle,
 );
+indexRouter.post("/:datatype/:dataid/edittitle", validateTitle(), handleUpdateTitle)
 
 module.exports = indexRouter;

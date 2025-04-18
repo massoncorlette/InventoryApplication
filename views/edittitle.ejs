@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/index.css" />
+  <title>Inventory Application</title>
+</head>
+<body>
+  <div id="headerContainer">
+    <a href="/">
+      <div id="headerTxt">
+        Movies Base Network
+      </div>
+    </a>
+  </div>
+  <div id="mainBody">
+    <%- include("sidebar/sidebar.ejs") %>
+    <div id="edittitleformDisplayContainer">
+      <% const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
+      <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/edittitle" method="POST" id="editForm">
+        <fieldset>
+          <legend>Edit title and details</legend>
+          <div id="formEntryTitle">      
+            <input id="title" type="text"  name="titletext" required><br>
+          </div>
+          <div id="formEntryDescription">
+            <textarea placeholder="Enter Description" id="description" type="text" name="descriptiontext" > </textarea>
+          </div>
+          <div id="submitBtnAddTitle">
+            <button type="submit" value="Send">Edit Movie</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <script src="/js/helpers.js"></script>
+</body>
+</html>

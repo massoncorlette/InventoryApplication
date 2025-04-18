@@ -7,7 +7,7 @@ const alphaErrAlt = "must only contain letters.";
 const lengthErrAlt = "must be between 3 and 10 characters.";
 
 const lengthErrTitle = "must be below 40 characters.";
-const lengthErrSummary = "must be below 100 characters.";
+const lengthErrSummary = "must be below 500 characters.";
 
 function validateDirector() {
   return [
@@ -27,7 +27,7 @@ function validateGenre() {
       .matches(/^[A-Za-z\s]+$/)
       .withMessage(`Genre name ${alphaErrAlt}`)
       .isLength({ min: 3, max: 12 })
-      .withMessage(`Name ${lengthErrAlt}`),
+      .withMessage(`Genre name ${lengthErrAlt}`),
   ];
 }
 
@@ -36,11 +36,11 @@ function validateTitle() {
     body("titletext")
       .trim()
       .isLength({ min: 1, max: 40 })
-      .withMessage(`Name ${lengthErrTitle}`),
-    body("descriptiontext")
+      .withMessage(`Title ${lengthErrTitle}`),
+      body("descriptiontext")
       .trim()
-      .isLength({ min: 0, max: 100 })
-      .withMessage(`Name ${lengthErrSummary}`),
+      .isLength({ min: 1, max: 500 })
+      .withMessage(`Title ${lengthErrSummary}`),
   ];
 }
 

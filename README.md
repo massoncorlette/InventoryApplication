@@ -5,6 +5,8 @@ Using Express I am using the backend framework to setup my route paths, and usin
 
 Focusing on MVC Pattern structure, GET/POST requests from form to DB, Handling data requests with async, handling data dynamically for templated view.
 
+Scripts for Eslint and Prettier in .json
+
 Run:
 npm install express
 npm install express-validator

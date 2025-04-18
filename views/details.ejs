@@ -20,15 +20,34 @@
     <%- include("sidebar/sidebar.ejs") %>
     <div id="moviesDisplayContainer">
       <div id="movieDetails">
-        <div><%= titleDetails.titleName %></div>
-      
+        <div id="movieDetailsTitle"><%= titleDetails.titleName %></div>
+        <% let datatype = "alltitles" %>
+        <% const titleid = titleDetails.titleId %>
+
+        <div id="movieDetailsGenre">
         <% if (titleDetails.genreName !== null) { %>
-          <div><%= titleDetails.genreName %></div>
+          <%= titleDetails.genreName %>
+          <% datatype = "genreedit" %>
         <% } %>
+        </div>
       
         <% if (titleDetails.directorName !== null) { %>
           <div><%= titleDetails.directorName %></div>
+          <% datatype = "directoredit" %>
         <% } %>
+
+        <% if (titleDetails.titleDescription !== null) { %>
+          <div><%= titleDetails.titleDescription %></div>
+        <% } %>
+
+        <% console.log(titleDetails.titleId) %>
+
+        <div id="editMovieBtnContainer">
+          <a href="/edittitle/<%= datatype %>/<%= titleid %>">
+            <div id="editMovieBtn">Edit</div>
+          </a>
+        </div>
+
       </div>
       
     </div>

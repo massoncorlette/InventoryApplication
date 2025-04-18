@@ -14,12 +14,14 @@ const genreRouter = require("./routes/genre");
 const directorRouter = require("./routes/director");
 const detailsRouter = require("./routes/details");
 const newTitleRouter = require("./routes/createtitle");
+const editTitleRouter = require("./routes/edittitle");
 
 app.use("/", indexRouter);
 app.use("/genre", genreRouter);
 app.use("/director", directorRouter);
 app.use("/details", detailsRouter);
 app.use("*/createtitle", newTitleRouter);
+app.use("*/edittitle", editTitleRouter);
 //route for edit/add title
 
 const PORT = process.env.PORT || 8080;
