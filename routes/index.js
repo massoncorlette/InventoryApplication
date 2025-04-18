@@ -17,6 +17,7 @@ const {
   validateGenre,
   validateDirectorAdd,
   validateGenreAdd,
+  validateTitleEdit,
 } = require("../controllers/validation");
 
 //import controller functions to use here upon routes being used
@@ -35,13 +36,13 @@ indexRouter.post(
 );
 indexRouter.post("/:genre_id/updategenre", validateGenre(), handleUpdateGenre);
 
-indexRouter.post("/adddirector", validateDirectorAdd(), handleCreateDirector);
-indexRouter.post("/addgenre", validateGenreAdd(), handleCreateGenre);
+indexRouter.post("/adddirector", validateDirector(), handleCreateDirector);
+indexRouter.post("/addgenre", validateGenre(), handleCreateGenre);
 indexRouter.post(
   "/:datatype/:datavalue/createtitle",
   validateTitle(),
   handleCreateTitle,
 );
-indexRouter.post("/:datatype/:dataid/edittitle", validateTitle(), handleUpdateTitle)
+indexRouter.post("/:datatype/:dataid/edittitle", validateTitleEdit(), handleUpdateTitle)
 
 module.exports = indexRouter;

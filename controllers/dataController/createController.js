@@ -29,10 +29,10 @@ async function handleCreateGenre(req, res, next) {
     });
   }
 
-  const { addgenre } = req.body;
+  const { genrename } = req.body;
 
   try {
-    await db.createGenre(addgenre); // getting ID from parsed URL from form action value '
+    await db.createGenre(genrename); // getting ID from parsed URL from form action value '
     res.redirect("/");
   } catch (err) {
     res.status(500).send("error");
@@ -47,10 +47,10 @@ async function handleCreateDirector(req, res, next) {
     });
   }
 
-  const { adddirector } = req.body;
+  const { directorname } = req.body;
 
   try {
-    await db.createDirector(adddirector); // getting ID from parsed URL from form action value '
+    await db.createDirector(directorname); // getting ID from parsed URL from form action value '
     res.redirect("/");
   } catch (err) {
     res.status(500).send("error");

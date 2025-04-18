@@ -19,14 +19,21 @@
     <%- include("sidebar/sidebar.ejs") %>
     <div id="edittitleformDisplayContainer">
       <% const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
+      <% console.log(titleDetails) %>
       <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/edittitle" method="POST" id="editForm">
         <fieldset>
           <legend>Edit title and details</legend>
           <div id="formEntryTitle">      
-            <input id="title" type="text"  name="titletext" required><br>
+            <input id="title" type="text"  name="titletext" value="<%= titleDetails.titleName %>" placeholder="Enter movie title"><br>
+          </div>
+          <div id="formEntryTitle">      
+            <input id="genre" type="text"  name="genrename" value="<%= titleDetails.genreName %>" placeholder="Enter genre"><br>
+          </div>
+          <div id="formEntryTitle">      
+            <input id="director" type="text"  name="directorname" value="<%= titleDetails.directorName %>" placeholder="Enter director"><br>
           </div>
           <div id="formEntryDescription">
-            <textarea placeholder="Enter Description" id="description" type="text" name="descriptiontext" > </textarea>
+            <textarea placeholder="Enter Description" id="description" type="text" name="descriptiontext"><%= titleDetails.titleDescription %></textarea>
           </div>
           <div id="submitBtnAddTitle">
             <button type="submit" value="Send">Edit Movie</button>

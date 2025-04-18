@@ -15,13 +15,10 @@ async function handleUpdateTitle(req, res) {
     });
   }
 
+  const { directorname, genrename } = req.body;
 
-  try {
-    await db.updateTitle(directorname, director_id); // getting ID from parsed URL from form action value '
-    res.redirect("/");
-  } catch (err) {
-    res.status(500).send("error");
-  }
+
+  console.log(directorname, genrename);
 }
 
 

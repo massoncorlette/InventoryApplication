@@ -13,9 +13,9 @@ function validateDirector() {
   return [
     body("directorname")
       .trim()
-      .matches(/^[A-Za-z\s]+$/) // use instead of isAlpha to include spaces
+      .isAlpha("en-US", { ignore: " " })
       .withMessage(`Director name ${alphaErr}`)
-      .isLength({ min: 5, max: 24 })
+      .isLength({ min: 0, max: 24 })
       .withMessage(`Name ${lengthErr}`),
   ];
 }
@@ -24,9 +24,9 @@ function validateGenre() {
   return [
     body("genrename")
       .trim()
-      .matches(/^[A-Za-z\s]+$/)
+      .isAlpha("en-US", { ignore: [" ", "-"] })
       .withMessage(`Genre name ${alphaErrAlt}`)
-      .isLength({ min: 3, max: 12 })
+      .isLength({ min: 0, max: 12 })
       .withMessage(`Genre name ${lengthErrAlt}`),
   ];
 }
@@ -35,41 +35,30 @@ function validateTitle() {
   return [
     body("titletext")
       .trim()
-      .isLength({ min: 1, max: 40 })
+      .isLength({ min: 0, max: 40 })
       .withMessage(`Title ${lengthErrTitle}`),
       body("descriptiontext")
       .trim()
-      .isLength({ min: 1, max: 500 })
-      .withMessage(`Title ${lengthErrSummary}`),
+      .isLength({ min: 0, max: 500 })
+      .withMessage(`Description ${lengthErrSummary}`),
   ];
 }
 
-function validateDirectorAdd() {
+function validateTitleEdit() {
+
   return [
-    body("adddirector")
-      .trim()
-      .matches(/^[A-Za-z\s]+$/) // use instead of isAlpha to include spaces
-      .withMessage(`Director name ${alphaErr}`)
-      .isLength({ min: 5, max: 24 })
-      .withMessage(`Name ${lengthErr}`),
+    ...validateTitle(),
+    ...validateDirector(),
+    ...validateGenre()
   ];
+  
 }
 
-function validateGenreAdd() {
-  return [
-    body("addgenre")
-      .trim()
-      .matches(/^[A-Za-z\s]+$/)
-      .withMessage(`Genre name ${alphaErrAlt}`)
-      .isLength({ min: 3, max: 12 })
-      .withMessage(`Name ${lengthErrAlt}`),
-  ];
-}
+
 
 module.exports = {
   validateDirector,
   validateTitle,
+  validateTitleEdit,
   validateGenre,
-  validateDirectorAdd,
-  validateGenreAdd,
 };
