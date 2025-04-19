@@ -37,13 +37,15 @@
           <div id="submitBtnAddTitle">
             <button type="submit" value="Send">Edit Movie</button>
           </div>
-          <div id="submitBtnDeleteTitle">
-            <form action="/<%= titleid %>/deletetitle" method="POST">
-              <button type="submit" value="Send">Delete Movie</button>
-            </form>
-          </div>
+
         </fieldset>
+
       </form>
+      <div id="submitBtnDeleteTitle">
+        <form action="/<%= titleid %>/deletetitle" method="POST">
+          <button type="submit" >Delete Movie</button>
+        </form>
+      </div>
     </div>
   </div>
   <script src="/js/helpers.js"></script>

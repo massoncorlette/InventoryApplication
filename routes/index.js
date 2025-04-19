@@ -11,6 +11,7 @@ const {
   handleCreateGenre,
   handleCreateDirector,
 } = require("../controllers/dataController/createController");
+const { handleDeleteTitle } = require("../controllers/dataController/deleteController");
 const {
   validateDirector,
   validateTitle,
@@ -43,5 +44,7 @@ indexRouter.post(
   handleCreateTitle,
 );
 indexRouter.post("/:titleid/edittitle", validateTitleEdit(), handleUpdateTitle);
+indexRouter.post("/:titleid/deletetitle", handleDeleteTitle);
+
 
 module.exports = indexRouter;

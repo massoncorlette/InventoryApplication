@@ -37,7 +37,8 @@ async function createTitle(title, descriptiontext, req) {
   }
 }
 
-async function deleteTitle( id) {
+
+async function deleteTitle(id) {
   await pool.query("DELETE title FROM titles WHERE titles_id = $1", [id])
 }
 

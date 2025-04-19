@@ -25,7 +25,7 @@ async function handleUpdateTitle(req, res) {
   } catch (err) {
     res.status(500).send("error");
   }
-}
+};
 
 
 async function handleUpdateDirector(req, res) {
@@ -45,7 +45,7 @@ async function handleUpdateDirector(req, res) {
   } catch (err) {
     res.status(500).send("error");
   }
-}
+};
 
 async function handleUpdateGenre(req, res) {
   const errors = validationResult(req);
