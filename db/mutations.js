@@ -68,30 +68,23 @@ async function deleteGenre(director, id) {}
 async function updateTitle(title, description, id, director, genre) {
 
   try {
+    // query for duplicate data for submitted genre and director
+    let genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
+    let directorID = await queries.getColumnId("director_id", "directors", "name", director);
 
-    await pool.query("UPDATE titles SET title = $1 ,description = $2 WHERE titles_id = $3", [title, description, id]);
-
-    const genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
-    const directorID = await queries.getColumnId("director_id", "directors", "name", director);
-
-    if (genreID == null) {
+    // if not found, create the data and get ID
+    if (genreID == null && genre != null) {
       await createGenre(genre);
       genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
+   
     }
 
-    if (directorID == null) {
+    if (directorID == null && director != null) {
       await createDirector(director);
       directorID = await queries.getColumnId("director_id", "directors", "name", director);
     }
-
-
-    if (genreID != null) {
-      await pool.query("UPDATE titles SET genre_id = $1 WHERE titles_id = $2", [genreID.genreID, id])
-    }
-
-    if (directorID != null) {
-      await pool.query("UPDATE titles SET director_id = $1 WHERE titles_id = $2", [directorID.directorID, id])
-    }
+    // finally update title, description and foreign keys
+    await pool.query("UPDATE titles SET title = $1 ,description = $2, director_id = $3, genre_id = $4 WHERE titles_id = $5", [title, description,directorID.director_id, genreID.genre_id, id]);
 
   } catch (error) {
     console.error("Error updating title", error.message);
