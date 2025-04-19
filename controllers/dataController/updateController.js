@@ -15,8 +15,6 @@ async function handleUpdateTitle(req, res) {
     });
   }
 
-
-
   const { titletext, descriptiontext, directorname, genrename } = req.body;
   const { titleid } = req.params;
 

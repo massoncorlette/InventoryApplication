@@ -4,8 +4,12 @@
 
 :root {
   --primary-text-color: whitesmoke;
+  --primary-color: rgb(17,0,255);
+  --primary-color-alt: rgb(17, 1, 235);
   --secondary-color: rgb(194, 0, 0);
-  --secondary-color-alt: rgb(230, 1, 1);
+  --submitBtn: rgb(0,0,0);
+  --errorDelete: rgb(230, 1, 1);
+  --errorDeleteAlt: rgb(194, 0, 0);
 }
 
 body {
@@ -154,7 +158,8 @@ details:open > .editIconActive {
 
 #addForm, #editForm {
   width: 80%;
-  height: 30%;
+  height: 40%;
+  margin-top: 2%;
 }
 
 #addForm fieldset, #editForm fieldset {
@@ -169,7 +174,8 @@ fieldset div {
 
 #formEntryTitle input,
 #formEntryDescription textarea,
-#submitBtnAddTitle button {
+#submitBtnAddTitle button 
+#submitBtnDeleteTitle button {
   flex: 1;
 }
 
@@ -179,7 +185,8 @@ legend {
 }
 
 #formEntryTitle input,
-#submitBtnAddTitle button {
+#submitBtnAddTitle button
+#submitBtnDeleteTitle {
   font-size: 1.2rem;
 }
 
@@ -191,18 +198,30 @@ legend {
   line-height: 1.5;
 }
 
-#submitBtnAddTitle button {
+#submitBtnAddTitle button,
+#submitBtnDeleteTitle button {
   flex: 1;
   padding: 2%;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--primary-text-color);
   font-weight: 700;
 }
 
 #submitBtnAddTitle button:hover {
-  background-color: var(--secondary-color-alt);
+  background-color: var(--primary-color-alt);
   cursor: pointer;
 }
+
+#submitBtnDeleteTitle button {
+  background-color: var(--errorDelete);
+}
+
+#submitBtnDeleteTitle button:hover {
+  background-color: var(--errorDeleteAlt);
+  cursor: pointer;
+}
+
+
 
 #formEntryTitle {
   flex: 1;

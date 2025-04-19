@@ -20,7 +20,6 @@ const {
   validateTitleEdit,
 } = require("../controllers/validation");
 
-//import controller functions to use here upon routes being used
 
 const indexRouter = Router();
 indexRouter.use(express.urlencoded({ extended: true }));
@@ -43,6 +42,6 @@ indexRouter.post(
   validateTitle(),
   handleCreateTitle,
 );
-indexRouter.post("/:titleid/edittitle", validateTitleEdit(), handleUpdateTitle)
+indexRouter.post("/:titleid/edittitle", validateTitleEdit(), handleUpdateTitle);
 
 module.exports = indexRouter;
