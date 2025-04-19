@@ -51,7 +51,6 @@ async function getTitleDetails(titleID) {
   const titleId = title.rows[0].titles_id;
   const titleDescription = title.rows[0].description;
 
-  console.log(title.rows[0].director_id);
 
   if (title.rows[0].director_id !== null) {
     director = await pool.query(

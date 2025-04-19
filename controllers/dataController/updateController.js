@@ -15,7 +15,7 @@ async function handleUpdateTitle(req, res) {
     });
   }
 
-  console.log(req.path);
+
 
   const { titletext, descriptiontext, directorname, genrename } = req.body;
   const { titleid } = req.params;
@@ -27,9 +27,6 @@ async function handleUpdateTitle(req, res) {
   } catch (err) {
     res.status(500).send("error");
   }
-
-
-  console.log(directorname, genrename, titleid);
 }
 
 

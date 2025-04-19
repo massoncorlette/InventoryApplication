@@ -8,8 +8,6 @@ async function createTitle(title, descriptiontext, req) {
     descriptiontext = " ";
   }
 
-  console.log(title);
-  console.log(descriptiontext);
 
   if (req.params.datatype == "genreadd") {
     const result = await queries.getColumnId(
@@ -36,23 +34,6 @@ async function createTitle(title, descriptiontext, req) {
     );
   } else {
     await pool.query("INSERT INTO titles (title, description) VALUES ($1, $2)", [title, descriptiontext]);
-  }
-}
-
-async function updateTitle(title, description, id, director, genre) {
-  await pool.query("UPDATE titles SET title = $1 ,description = $2 WHERE titles_id = $3", [title, description, id]);
-
-  const genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
-  const directorID = await queries.getColumnId("director_id", "directors", "name", director);
-
-  console.log(genreID, directorID);
-
-  if (genreID) {
-    await pool.query("UPDATE titles SET genre_id = $1 WHERE titles_id = $2", [genreID, id])
-  }
-
-  if (directorID) {
-    await pool.query("UPDATE titles SET director_id = $1 WHERE titles_id = $2", [directorID, id])
   }
 }
 
@@ -83,6 +64,39 @@ async function updateGenre(genre, id) {
 }
 
 async function deleteGenre(director, id) {}
+
+async function updateTitle(title, description, id, director, genre) {
+
+  try {
+
+    await pool.query("UPDATE titles SET title = $1 ,description = $2 WHERE titles_id = $3", [title, description, id]);
+
+    const genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
+    const directorID = await queries.getColumnId("director_id", "directors", "name", director);
+
+    if (genreID == null) {
+      await createGenre(genre);
+      genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
+    }
+
+    if (directorID == null) {
+      await createDirector(director);
+      directorID = await queries.getColumnId("director_id", "directors", "name", director);
+    }
+
+
+    if (genreID != null) {
+      await pool.query("UPDATE titles SET genre_id = $1 WHERE titles_id = $2", [genreID.genreID, id])
+    }
+
+    if (directorID != null) {
+      await pool.query("UPDATE titles SET director_id = $1 WHERE titles_id = $2", [directorID.directorID, id])
+    }
+
+  } catch (error) {
+    console.error("Error updating title", error.message);
+  }
+};
 
 module.exports = {
   createTitle,
