@@ -8,8 +8,8 @@
   --primary-color-alt: rgb(17, 1, 235);
   --secondary-color: rgb(194, 0, 0);
   --submitBtn: rgb(0,0,0);
-  --errorDelete: rgb(230, 1, 1);
-  --errorDeleteAlt: rgb(194, 0, 0);
+  --errorDelete: rgba(185, 0, 0, 0);
+  --errorDeleteAlt: rgb(168, 0, 0);
 }
 
 body {
@@ -221,7 +221,10 @@ legend {
   cursor: pointer;
 }
 
-
+#trashIcon {
+  width: 2rem;
+  height: auto;
+}
 
 #formEntryTitle {
   flex: 1;
@@ -262,11 +265,19 @@ legend {
   align-items: center;
 }
 
+
+
 /* Tablet */
-@media (max-width: 62.5em) {
+@media (max-width: 80em) {
+
+  body {
+    font-size: smaller;
+  }
+
   .movieCells {
     width: 25%;
   }
+  
   #sidebarContainer {
     flex: 2;
   }
@@ -282,6 +293,15 @@ legend {
     display: flex;
     justify-content: center;
   }
+
+  #addForm, #editForm {
+    height: 60%;
+  }
+
+  #formEntryDescription {
+    flex: 3;
+  }
+  
 }
 /* Mobile */
 @media (max-width: 51.25em) {
@@ -290,7 +310,7 @@ legend {
   }
 
   #sidebarContainer {
-    flex: 2;
+    flex: 3;
   }
 
   #moviesDisplayContainer {

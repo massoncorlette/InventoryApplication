@@ -37,13 +37,14 @@
           <div id="submitBtnAddTitle">
             <button type="submit" value="Send">Edit Movie</button>
           </div>
-
         </fieldset>
 
       </form>
       <div id="submitBtnDeleteTitle">
         <form action="/<%= titleid %>/deletetitle" method="POST">
-          <button type="submit" >Delete Movie</button>
+          <button type="submit">
+            <img src="/trash.svg" id="trashIcon"/>
+          </button>
         </form>
       </div>
     </div>
