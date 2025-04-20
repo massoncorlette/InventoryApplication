@@ -1,15 +1,8 @@
 // browser side helpers go here
 
-document.addEventListener("DOMContentLoaded", () => {
-  function editToggle() {
-    const sideBarCells = document.querySelectorAll(".editIconButton");
 
-    sideBarCells.forEach((element) => {
-      element.addEventListener("click", () => {
-        console.log(element);
-      });
-    });
-  }
+// for toggling elements clicking outside of element
+document.addEventListener("DOMContentLoaded", () => {
 
   function toggleDetailsElements() {
     const detailsElements = document.querySelectorAll("details");
@@ -41,6 +34,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function toggleDetailsSummaryImg() {
+    document.querySelectorAll('details').forEach(detail => {
+      const icon = detail.querySelector('summary img.editIcon');
+    
+      detail.addEventListener('toggle', () => {
+        if (detail.open) {
+          icon.src = '/cancel.svg';
+          icon.alt = 'Close';
+        } else {
+          icon.src = '/editpen.svg';
+          icon.alt = 'Edit';
+        }
+      });
+    });
+  }
+
+  document.querySelectorAll('details').forEach(detail => {
+    const icon = detail.querySelector('summary img.editIcon');
+  
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        icon.src = '/closepen.svg';
+      } else {
+        icon.src = '/editpen.svg';
+      }
+    });
+  });
+
   toggleDetailsElements();
-  editToggle();
+  toggleDetailsSummaryImg();
 });

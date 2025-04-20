@@ -1,5 +1,5 @@
 * {
-  border: solid rgba(17, 0, 255, 0.514) 1px;
+  border: solid rgba(17, 0, 255, 0.219) 1px;
 }
 
 :root {
@@ -16,7 +16,7 @@ body {
   margin: 0;
   height: 100vh;
   font-family: "Roboto", sans-serif;
-  background-color: rgb(36, 36, 36);
+  background-color: rgb(184, 184, 184);
   color: var(--primary-text-color);
   cursor: default;
 }
@@ -121,6 +121,15 @@ h2 {
 
 .sidebarCells:has(details[open]) .sideBarTxtContainer {
   display: none;
+}
+
+.sidebarDetails {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+input:hover {
+  cursor: pointer;
 }
 
 details,
