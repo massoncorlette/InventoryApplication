@@ -7,10 +7,13 @@
   </summary>
   
   <div class="editIconActive">
-    <form action="/<%= genre.genre_id %>/updategenre" method="POST">
-      <input type="text" name="genrename" value="<%= genre.genre %>" required>
-      <button type="submit">Update</button>
-      
+    <form action="/<%= genre.genre_id %>/updategenre" method="POST" class="updateSideBarForm">
+      <div class="formInput">
+        <input type="text" name="genrename" value="<%= genre.genre %>" required>
+      </div>
+      <div class="formSubmit">
+        <button type="submit">Update</button>
+      </div>
     </form>
   </div>
 </details>

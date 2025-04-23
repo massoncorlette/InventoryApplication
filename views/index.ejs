@@ -14,6 +14,9 @@
         Movies Base Network
       </div>
     </a>
+    <div id="headerLogo" >
+      <img src="/movieDBicon.png" />
+    </div>
   </div>
   <div id="mainBody">
     <%- include("sidebar/sidebar.ejs") %>
@@ -27,7 +30,7 @@
     <% const name = namevalue %>
     <% if (req.baseUrl == "/genre") {datatype = "genreadd"} 
     else if (req.baseUrl == "/director") {datatype = "directoradd"}%>
-      <div id="addMovieContainer">
+      <div id="addMovieContainer" class="movieCells">
         <a id="addMovieBtn" href="/<%= datatype %>/<%= name %>/createtitle">
           <img class="addMovieIcon" src="/addcircle.png" />
         </a>

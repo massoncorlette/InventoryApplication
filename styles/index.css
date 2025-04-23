@@ -1,24 +1,34 @@
 * {
-  border: solid rgba(17, 0, 255, 0.219) 1px;
+  border: solid rgba(255, 53, 53, 0) 1px;
 }
 
+
 :root {
-  --primary-text-color: whitesmoke;
-  --primary-color: rgb(17,0,255);
-  --primary-color-alt: rgb(17, 1, 235);
-  --secondary-color: rgb(194, 0, 0);
+  --primary-text-color: rgb(34, 34, 34);
+  --blue-shade: rgba(43, 45, 66);
+  --grey-shade: rgba(141,153,174);
+  --white-shade: rgba(237,242,244);
+  --red-shade: rgba(239,35,60);
+  --red-shade-dark: rgba(217,4,41);
   --submitBtn: rgb(0,0,0);
   --errorDelete: rgba(185, 0, 0, 0);
   --errorDeleteAlt: rgb(168, 0, 0);
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
-  height: 100vh;
   font-family: "Roboto", sans-serif;
-  background-color: rgb(184, 184, 184);
   color: var(--primary-text-color);
   cursor: default;
+  animation-duration: 0.5s;
+  animation-name: font-ease;
 }
 
 textarea {
@@ -28,11 +38,10 @@ textarea {
 a {
   text-decoration: none;
   list-style: none;
-  color: whitesmoke;
+  color: var(--primary-text-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
   height: 100%;
 }
 
@@ -40,12 +49,23 @@ a {
   height: 10%;
   display: flex;
   align-items: center;
-  margin-left: 13%;
   font-size: 2rem;
+  background-color: var(--grey-shade);
 }
 
 #headerContainer a {
   justify-content: flex-start;
+  margin-left: 12%;
+}
+
+#headerLogo {
+  display: flex;
+  align-items: center;
+}
+
+#headerLogo img {
+  height: 3rem;
+  width: auto;
 }
 
 #headerTxt,
@@ -68,18 +88,24 @@ h2 {
   align-items: center;
 }
 
-#editMovieBtnContainer {
-
-}
-
 .addSideBarSection {
   display: flex;
   justify-content: center;
+  flex: 2;
+}
+
+.updateSideBarForm {
+  display: flex;
+}
+
+#byDirector {
+  background-color: var();
 }
 
 #mainBody {
-  min-height: 100%;
+  height: 100%;
   display: flex;
+  background-color: var(--blue-shade);
 }
 
 #mainBodyAlt {
@@ -111,6 +137,17 @@ h2 {
   flex-direction: column;
 }
 
+@keyframes font-ease {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+
 .sidebarCells {
   display: flex;
 }
@@ -122,6 +159,18 @@ h2 {
 .sidebarCells:has(details[open]) .sideBarTxtContainer {
   display: none;
 }
+
+
+.sidebarCells:has(details[open]) {
+  animation-duration: 1.5s;
+  animation-name: font-ease;
+}
+
+.sideBarTxtContainer {
+  animation-duration: 1.5s;
+  animation-name: font-ease;
+}
+
 
 .sidebarDetails {
   display: flex;
@@ -226,7 +275,7 @@ legend {
 }
 
 #submitBtnDeleteTitle button:hover {
-  background-color: var(--errorDeleteAlt);
+  scale: 1.1;
   cursor: pointer;
 }
 
@@ -256,13 +305,7 @@ legend {
   background-color: transparent;
 }
 
-#addMovieBtn:hover {
-  scale: 1.1;
-  cursor: pointer;
-}
-
-.movieCells,
-#addMovieContainer {
+.movieCells {
   font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 1.2rem;
@@ -272,9 +315,26 @@ legend {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--white-shade);
 }
 
+.movieCells a {
+  width: 80%;
+  border: solid var(--primary-color-alt) 1px;
 
+}
+
+.movieCells, #addMovieContainer {
+  margin: 2%;
+}
+
+.movieCells:hover {
+  scale: 1.1;
+}
+
+#addMovieContainer a {
+  width: 100%;
+}
 
 /* Tablet */
 @media (max-width: 80em) {
