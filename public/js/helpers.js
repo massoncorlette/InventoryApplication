@@ -4,6 +4,14 @@
 // for toggling elements clicking outside of element
 document.addEventListener("DOMContentLoaded", () => {
 
+  function setTheme() {
+    const root = document.documentElement;
+    const newTheme = root.className === 'light' ? 'dark' : 'light';
+    root.className = newTheme;
+  }
+  
+  document.querySelector('#theme-btn').addEventListener('click', setTheme);
+
   function toggleDetailsElements() {
     const detailsElements = document.querySelectorAll("details");
 
