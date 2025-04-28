@@ -10,13 +10,13 @@
     </div>
     <% }) %>
     <div class="addSideBarSection">
-      <details>
+      <details class="addDataToggle">
         <summary>
           <img class="addIcon" src="/addcircle.png" />
         </summary>
         
         <div class="addIconActive">
-          <form action="/addgenre" method="POST">
+          <form action="/addgenre" method="POST" class="updateSideBarForm">
             <input type="text" name="genrename" placeholder="Add a genre" required>
             <button type="submit">Add</button>
             
@@ -36,18 +36,19 @@
       </div>
     <% }) %>    
     <div class="addSideBarSection">
-      <details>
+      <details class="addDataToggle">
         <summary>
           <img class="addIcon" src="/addcircle.png" />
         </summary>
-        
+
         <div class="addIconActive">
-          <form action="/adddirector" method="POST">
-            <input type="text" name="directorname" placeholder="Add a director" required>
+          <form action="/adddirector" method="POST" class="updateSideBarForm">
+            <input type="text" name="genrename" placeholder="Add a director" required>
             <button type="submit">Add</button>
             
           </form>
         </div>
+
       </details>  
     </div>    
   </div>

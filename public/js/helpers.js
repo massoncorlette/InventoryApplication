@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function toggleDetailsSummaryImg() {
-    document.querySelectorAll('details').forEach(detail => {
+    document.querySelectorAll('.sidebarDetails').forEach(detail => {
       const icon = detail.querySelector('summary img.editIcon');
     
       detail.addEventListener('toggle', () => {
@@ -45,6 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           icon.src = '/editpen.svg';
           icon.alt = 'Edit';
+        }
+      });
+    });
+
+    document.querySelectorAll('.addDataToggle').forEach(detail => {
+      const icon = detail.querySelector('summary img.addIcon');
+    
+      detail.addEventListener('toggle', () => {
+        if (detail.open) {
+          icon.src = '/cancel.svg';
+          icon.alt = 'Close';
+        } else {
+          icon.src = '/addcircle.png';
+          icon.alt = 'Add';
         }
       });
     });
