@@ -21,7 +21,7 @@ app.use("/genre", genreRouter);
 app.use("/director", directorRouter);
 app.use("/details", detailsRouter);
 app.use("*/createtitle", newTitleRouter);
-app.use("*/edittitle", editTitleRouter);
+app.use("/edittitle", editTitleRouter);
 //route for edit/add title
 
 const PORT = process.env.PORT || 8080;

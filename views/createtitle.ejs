@@ -9,19 +9,25 @@
 </head>
 <body>
   <div id="headerContainer">
-    <a href="/">
-      <div id="headerTxt">
-        Movies Base Network
+    <div id="headerLogoContainer">
+      <a href="/">
+        <div id="headerTxt">
+          Movies Base Network
+        </div>
+      </a>
+      <div id="headerLogo" >
+        <img src="/movieDBicon.png" />
       </div>
-    </a>
-    <div id="headerLogo" >
-      <img src="/movieDBicon.png" />
+    </div>
+    <div">
+      <button id="theme-btn">theme</button>
     </div>
   </div>
   <div id="mainBody">
     <%- include("sidebar/sidebar.ejs") %>
     <div id="addtitleformDisplayContainer">
       <% const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
+      <% console.log(urlParts); %>
       <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/createtitle" method="POST" id="addForm">
         <fieldset>
           <legend>Add a title and description</legend>

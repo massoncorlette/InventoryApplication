@@ -8,12 +8,8 @@
   
   <div class="editIconActive">
     <form action="/<%= director.director_id %>/updatedirector" method="POST" class="updateSideBarForm">
-      <div class="formInput">
-        <input type="text" name="directorname" value="<%= director.name %>" required>
-      </div>
-      <div id="formSubmit">
-        <button type="submit">Update</button>
-      </div>
+      <input type="text" name="directorname" value="<%= director.name %>" required>
+      <button type="submit">Update</button>
     </form>
   </div>
 </details>

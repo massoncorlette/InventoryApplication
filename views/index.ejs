@@ -45,7 +45,7 @@
     <% const name = namevalue %>
     <% if (req.baseUrl == "/genre") {datatype = "genreadd"} 
     else if (req.baseUrl == "/director") {datatype = "directoradd"}%>
-      <div id="addMovieContainer" class="movieCells">
+      <div class="movieCells">
         <a id="addMovieBtn" href="/<%= datatype %>/<%= name %>/createtitle">
           <img class="addMovieIcon" src="/addcircle.png" />
         </a>

@@ -19,6 +19,9 @@
         <img src="/movieDBicon.png" />
       </div>
     </div>
+    <div">
+      <button id="theme-btn">theme</button>
+    </div>
     <div id="dataContainer">
       <div id="glowingred">
         <img src="/glowingred.gif" />
@@ -32,9 +35,20 @@
     <%- include("sidebar/sidebar.ejs") %>
     <div id="edittitleformDisplayContainer">
       <% const titleid = req.params.titleid %>
+      <% console.log(titleid) %>
       <form action="/<%= titleid %>/edittitle" method="POST" id="editForm">
         <fieldset>
-          <legend>Edit title and details</legend>
+          <div id="formHeaderContainer">
+            <legend>Edit title and details</legend>
+            <div id="submitBtnDeleteTitle">
+              <form action="/<%= titleid %>/deletetitle" method="POST">
+                <button type="submit">
+                  <img src="/trash.svg" id="trashIcon"/>
+                </button>
+              </form>
+            </div>
+          </div>
+
           <div id="formEntryTitle">      
             <input id="title" type="text"  name="titletext" value="<%= titleDetails.titleName %>" placeholder="Enter movie title"><br>
           </div>
@@ -53,13 +67,7 @@
         </fieldset>
 
       </form>
-      <div id="submitBtnDeleteTitle">
-        <form action="/<%= titleid %>/deletetitle" method="POST">
-          <button type="submit">
-            <img src="/trash.svg" id="trashIcon"/>
-          </button>
-        </form>
-      </div>
+
     </div>
   </div>
   <script src="/js/helpers.js"></script>
