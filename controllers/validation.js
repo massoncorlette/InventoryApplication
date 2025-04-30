@@ -12,8 +12,9 @@ const lengthErrSummary = "must be below 500 characters.";
 function validateDirector() {
   return [
     body("directorname")
+      .optional({ checkFalsy: true }) 
       .trim()
-      .isAlpha("en-US", { ignore: " " })
+      .isAlpha("en-US", { ignore: [" ", "-"] })
       .withMessage(`Director name ${alphaErr}`)
       .isLength({ min: 0, max: 24 })
       .withMessage(`Name ${lengthErr}`),
@@ -25,11 +26,12 @@ function validateDirector() {
 function validateGenre() {
   return [
     body("genrename")
+      .optional({ checkFalsy: true }) 
       .trim()
-      .isAlpha("en-US", { ignore: [" ", "-"] })
-      .withMessage(`Genre name ${alphaErrAlt}`)
       .isLength({ min: 0, max: 12 })
-      .withMessage(`Genre name ${lengthErrAlt}`),
+      .withMessage(`Genre name ${lengthErrAlt}`)
+      .isAlpha("en-US", { ignore: [" ", "-"] })
+      .withMessage(`Genre name ${alphaErrAlt}`),
   ];
 }
 

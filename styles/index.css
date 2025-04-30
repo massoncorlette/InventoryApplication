@@ -182,16 +182,18 @@ input {
   background-color: var(--grey-shade);
 }
 
-#mainBody {
-  height: 100%;
+#mainBody, #mainBodyAlt{
+  min-height: 100%;
   display: flex;
   background-color: var(--blue-shade);
 }
+
 
 #mainBodyAlt {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  background-color: var(--grey-shade);
 }
 
 #errorMessageTxt {
@@ -330,7 +332,6 @@ details:open > .editIconActive, details:open > .addIconActive {
 }
 
 #addtitleformDisplayContainer form, #edittitleformDisplayContainer form {
-  background-color: var(--grey-shade);
   flex: 1;
 }
 
@@ -371,6 +372,10 @@ legend {
 #submitBtnAddTitle button
 #submitBtnDeleteTitle {
   font-size: 1.2rem;
+}
+
+#submitBtnDeleteTitle button {
+  background-color: var(--grey-shade);
 }
 
 #formEntryDescription textarea {

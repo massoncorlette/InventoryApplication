@@ -12,6 +12,8 @@ async function handleCreateTitle(req, res, next) {
 
   const { titletext } = req.body;
   const { descriptiontext } = req.body;
+  const { genrename } = req.body;
+  const { directorname } = req.body;
 
   try {
     await db.createTitle(titletext, descriptiontext, req); // getting ID from parsed URL from form action value '

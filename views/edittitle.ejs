@@ -31,22 +31,15 @@
       </div>
     </div>
   </div>
-  <div id="mainBody">
+  <div id="mainBodyAlt">
     <%- include("sidebar/sidebar.ejs") %>
     <div id="edittitleformDisplayContainer">
       <% const titleid = req.params.titleid %>
-      <% console.log(titleid) %>
+
       <form action="/<%= titleid %>/edittitle" method="POST" id="editForm">
         <fieldset>
           <div id="formHeaderContainer">
             <legend>Edit title and details</legend>
-            <div id="submitBtnDeleteTitle">
-              <form action="/<%= titleid %>/deletetitle" method="POST">
-                <button type="submit">
-                  <img src="/trash.svg" id="trashIcon"/>
-                </button>
-              </form>
-            </div>
           </div>
 
           <div id="formEntryTitle">      
@@ -67,6 +60,13 @@
         </fieldset>
 
       </form>
+      <div id="submitBtnDeleteTitle">
+        <form action="/<%= titleid %>/deletetitle" method="POST">
+          <button type="submit">
+            <img src="/trash.svg" id="trashIcon"/>
+          </button>
+        </form>
+      </div>
 
     </div>
   </div>

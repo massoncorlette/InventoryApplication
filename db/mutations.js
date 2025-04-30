@@ -8,6 +8,7 @@ async function createTitle(title, descriptiontext, req) {
     descriptiontext = " ";
   }
 
+  console.log(req.params.datatype);
 
   if (req.params.datatype == "genreadd") {
     const result = await queries.getColumnId(
@@ -21,7 +22,7 @@ async function createTitle(title, descriptiontext, req) {
       descriptiontext,
       result.genre_id,
     ]);
-  } else if ((req.params.datatype = "directoradd")) {
+  } else if ((req.params.datatype == "directoradd")) {
     const result = await queries.getColumnId(
       "director_id",
       "directors",
@@ -32,7 +33,7 @@ async function createTitle(title, descriptiontext, req) {
       "INSERT INTO titles (title, description, director_id) VALUES ($1, $2, $3)",
       [title, descriptiontext, result.director_id],
     );
-  } else {
+  } else if ((req.params.datatype == "alltitles")) {
     await pool.query("INSERT INTO titles (title, description) VALUES ($1, $2)", [title, descriptiontext]);
   }
 }
