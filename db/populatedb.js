@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS genres (
 CREATE TABLE IF NOT EXISTS titles (
   titles_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   title VARCHAR ( 255 ),
-  description VARCHAR ( 500 ),
+  description VARCHAR ( 1001 ),
   director_id INTEGER,
   genre_id INTEGER,
   FOREIGN KEY (director_id) REFERENCES directors (director_id),

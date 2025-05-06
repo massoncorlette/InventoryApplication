@@ -7,7 +7,7 @@ const alphaErrAlt = "must only contain letters.";
 const lengthErrAlt = "must be between 3 and 10 characters.";
 
 const lengthErrTitle = "must be below 40 characters.";
-const lengthErrSummary = "must be below 500 characters.";
+const lengthErrSummary = "must be below 1000 characters.";
 
 function validateDirector() {
   return [
@@ -43,7 +43,7 @@ function validateTitle() {
       .withMessage(`Title ${lengthErrTitle}`),
       body("descriptiontext")
       .trim()
-      .isLength({ min: 0, max: 500 })
+      .isLength({ min: 0, max: 1001 })
       .withMessage(`Description ${lengthErrSummary}`),
   ];
 }

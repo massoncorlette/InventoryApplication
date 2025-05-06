@@ -34,28 +34,31 @@
   </div>
   <div id="mainBody">
     <%- include("sidebar/sidebar.ejs") %>
+    <% let datatype = "alltitles" %>
+    <% const titleid = titleDetails.titleId %>
     <div id="moviesDisplayContainer">
       <div id="movieDetails">
         <div id="movieDetailsTitle">
           <div>
             <%= titleDetails.titleName %>
           </div>
+          <div id="movieTitleDetails">
+            <div id="movieDetailsGenre">
+              <% if (titleDetails.genreName !== null) { %>
+                <%= titleDetails.genreName %>
+                <% datatype = "genreedit" %>
+              <% } %>
+              </div>
+            
+              <% if (titleDetails.directorName !== null) { %>
+                <div id="movieDetailsDirector">
+                  <div>Directed By </div>
+                  <div><%= titleDetails.directorName %></div>
+                </div>
+                <% datatype = "directoredit" %>
+              <% } %>
+          </div>
         </div>
-        <% let datatype = "alltitles" %>
-        <% const titleid = titleDetails.titleId %>
-
-        <div id="movieDetailsGenre">
-        <% if (titleDetails.genreName !== null) { %>
-          <%= titleDetails.genreName %>
-          <% datatype = "genreedit" %>
-        <% } %>
-        </div>
-      
-        <% if (titleDetails.directorName !== null) { %>
-          <div id="movieDetailsDirector">
-            <div>Directed By </div><%= titleDetails.directorName %></div>
-          <% datatype = "directoredit" %>
-        <% } %>
 
         <% if (titleDetails.titleDescription !== null) { %>
           <div id="movieDetailsDescription"><%= titleDetails.titleDescription %></div>
