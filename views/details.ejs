@@ -36,7 +36,11 @@
     <%- include("sidebar/sidebar.ejs") %>
     <div id="moviesDisplayContainer">
       <div id="movieDetails">
-        <div id="movieDetailsTitle"><%= titleDetails.titleName %></div>
+        <div id="movieDetailsTitle">
+          <div>
+            <%= titleDetails.titleName %>
+          </div>
+        </div>
         <% let datatype = "alltitles" %>
         <% const titleid = titleDetails.titleId %>
 
@@ -48,12 +52,13 @@
         </div>
       
         <% if (titleDetails.directorName !== null) { %>
-          <div><%= titleDetails.directorName %></div>
+          <div id="movieDetailsDirector">
+            <div>Directed By </div><%= titleDetails.directorName %></div>
           <% datatype = "directoredit" %>
         <% } %>
 
         <% if (titleDetails.titleDescription !== null) { %>
-          <div><%= titleDetails.titleDescription %></div>
+          <div id="movieDetailsDescription"><%= titleDetails.titleDescription %></div>
         <% } %>
 
         <div id="editMovieBtnContainer">

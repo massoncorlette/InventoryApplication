@@ -13,6 +13,7 @@
   --red-shade-dark: rgba(217, 4, 4, 0.829);
 
   --text-color: rgb(0, 0, 0);
+  --text-color-alt: rgb(255,255,255);
 }
 
 :root.light {
@@ -188,13 +189,10 @@ input {
   background-color: var(--blue-shade);
 }
 
-
-#mainBodyAlt {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  background-color: var(--grey-shade);
+#sideBarContainer {
+  min-height: 100%;
 }
+
 
 #errorMessageTxt {
   font-size: 1.5rem;
@@ -337,7 +335,7 @@ details:open > .editIconActive, details:open > .addIconActive {
 
 #addForm, #editForm {
   width: 80%;
-  height: 40%;
+  height: 50%;
   animation-duration: 1.5s;
   animation-name: font-ease;
   padding-top: 1%;
@@ -375,7 +373,7 @@ legend {
 }
 
 #submitBtnDeleteTitle button {
-  background-color: var(--grey-shade);
+  background-color: var(--blue-shade);
 }
 
 #formEntryDescription textarea {
@@ -431,11 +429,46 @@ legend {
 #movieDetails {
   flex: 1;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  color: var(--primary-text-color);
+  font-size: 1.5rem;
 }
+
+#movieDetailsTitle {
+ grid-column: 2/9;
+ grid-row: 2/3;
+ display: flex;
+ flex: 1;
+ justify-content: center;
+ font-size: 2rem;
+ font-weight: 600;
+}
+
+#movieDetailsDirector {
+  grid-column: 4/9;
+  grid-row: 3/4;
+  display: flex;
+  gap: 1%;
+}
+
+#movieDetailsGenre {
+  grid-column: 2/4;
+  grid-row: 3/4;
+}
+
+#movieDetailsDescription {
+  grid-column: 2/9;
+  grid-row:4/8;
+}
+
+#editMovieBtnContainer {
+  grid-column: 2/9;
+  grid-row: 8/9 ;
+}
+
+
 
 #addMovieBtn {
   background-color: transparent;
