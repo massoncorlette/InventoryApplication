@@ -11,13 +11,29 @@
 </head>
 <body>
   <div id="headerContainer">
-    <a href="/">
-      <div id="headerTxt">
-        Movies Base Network
+    <div id="headerLogoContainer">
+      <a href="/">
+        <div id="headerTxt">
+          Movies Base Network
+        </div>
+      </a>
+      <div id="headerLogo" >
+        <img src="/movieDBicon.png" />
       </div>
-    </a>
+    </div>
+    <div">
+      <button id="theme-btn">theme</button>
+    </div>
+    <div id="dataContainer">
+      <div id="glowingred">
+        <img src="/glowingred.gif" />
+      </div>
+      <div id="dataValueType">
+        Error!
+      </div>
+    </div>
   </div>
-  <div id="mainBodyAlt">
+  <div id="mainBodyEdit">
     <div id="errorMessageContainer">
       <div id="errorMessageTxt">Error</div>
       <% if (locals.errors) {%>
@@ -27,7 +43,9 @@
           <% }); %>
         </ul>
       <% } %>
-      <a href="/">Go Back</a>
+      <div>
+        <a href="/">Go Back Home</a>
+      </div>
       
     </div>
   </div>

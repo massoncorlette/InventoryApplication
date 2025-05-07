@@ -6,7 +6,7 @@ const lengthErr = "must be between 5 and 24 characters.";
 const alphaErrAlt = "must only contain letters.";
 const lengthErrAlt = "must be between 3 and 10 characters.";
 
-const lengthErrTitle = "must be below 40 characters.";
+const lengthErrTitle = "not empty, and must be below 40 characters.";
 const lengthErrSummary = "must be below 1000 characters.";
 
 function validateDirector() {
@@ -39,7 +39,7 @@ function validateTitle() {
   return [
     body("titletext")
       .trim()
-      .isLength({ min: 0, max: 40 })
+      .isLength({ min: 1, max: 40 })
       .withMessage(`Title ${lengthErrTitle}`),
       body("descriptiontext")
       .trim()

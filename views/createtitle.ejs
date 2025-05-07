@@ -23,11 +23,30 @@
       <button id="theme-btn">theme</button>
     </div>
   </div>
+  <div id="dataContainerAlt">
+    <div id="dataInfo">
+      <div id="glowingred">
+        <img src="/glowingred.gif" />
+      </div>
+      <div id="dataValueType">
+        Create Mode
+      </div>
+    </div>
+    <% const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
+    <% console.log(urlParts); %>
+    <% if (urlParts[1] != "alltitles") { %>
+      <div id="deleteBtnContainer">
+        <form>
+          <div id="deleteBtnDataType">
+            <button type="submit" value="Send">Delete All Data for <%= urlParts[2] %></button>
+          </div>
+        </form>
+      </div>
+     <% } %> 
+  </div>
   <div id="mainBody">
     <%- include("sidebar/sidebar.ejs") %>
     <div id="addtitleformDisplayContainer">
-      <% const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
-      <% console.log(urlParts); %>
       <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/createtitle" method="POST" id="addForm">
         <fieldset>
           <legend>Add a title and description</legend>

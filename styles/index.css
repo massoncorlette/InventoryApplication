@@ -98,9 +98,13 @@ a {
   width: 60%;
 }
 
-#dataContainer {
+#dataContainer, #dataInfo {
   display: flex;
   margin-left: 1%;
+}
+
+#dataContainerAlt {
+  justify-content: space-between;
 }
 
 #headerLogo {
@@ -187,6 +191,14 @@ input {
   min-height: 100%;
   display: flex;
   background-color: var(--blue-shade);
+}
+
+#mainBodyEdit {
+  min-height: 100%;
+  background-color: var(--blue-shade);
+  display: flex;
+  justify-content: center;
+  color: var(--text-color-alt);
 }
 
 #sideBarContainer {
@@ -329,6 +341,7 @@ details:open > .editIconActive, details:open > .addIconActive {
   justify-content: center;
 }
 
+
 #addtitleformDisplayContainer form, #edittitleformDisplayContainer form {
   flex: 1;
 }
@@ -357,17 +370,20 @@ fieldset div {
 #formEntryTitle input,
 #formEntryDescription textarea,
 #submitBtnAddTitle button 
-#submitBtnDeleteTitle button {
+#submitBtnDeleteTitle button,
+#deleteBtnDataType button {
   flex: 1;
 }
 
 legend {
   font-size: 1.2rem;
   font-style: italic;
+  color: var(--yellow-shade);
+  font-weight: 600;
 }
 
 #formEntryTitle input,
-#submitBtnAddTitle button
+#submitBtnAddTitle button,
 #submitBtnDeleteTitle {
   font-size: 1.2rem;
 }
@@ -384,17 +400,32 @@ legend {
   line-height: 1.5;
 }
 
-#submitBtnAddTitle button {
+#submitBtnAddTitle button,
+#deleteBtnDataType button {
   flex: 1;
   padding: 2%;
   font-weight: 700;
+}
+
+#deleteBtnDataType button {
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 2%;
 }
 
 #submitBtnAddTitle button {
   background-color: var(--yellow-shade);
 }
 
-#submitBtnAddTitle button:hover {
+#deleteBtnDataType button {
+  background-color: var(--red-shade-dark);
+}
+
+#deleteBtnDataType button:hover {
+  background-color: var(--red-shade);
+}
+
+#submitBtnAddTitle button:hover, #deleteBtnDataType button:hover {
   cursor: pointer;
 }
 
@@ -402,6 +433,10 @@ legend {
 #formHeaderContainer {
   display: flex;
   justify-content: space-between;
+}
+
+fieldset div input, fieldset div textarea {
+  padding: 1%;
 }
 
 
@@ -444,6 +479,7 @@ legend {
  align-items: center;
  font-size: 2rem;
  font-weight: 600;
+ background-color: var(--grey-shade);
 }
 
 #movieTitleDetails {
@@ -453,6 +489,8 @@ legend {
   justify-content: center;
   align-items: center;
   gap: 3%;
+  border-bottom: 1px solid var(--yellow-shade);
+
 }
 
 #movieDetailsGenre {
@@ -463,12 +501,13 @@ legend {
 #movieDetailsDirector {
   display: flex;
   align-items: center; 
-  gap: 8px; 
 }
 
 #movieDetailsDescription {
   grid-column: 2/10;
   grid-row:3/8;
+  background-color: var(--grey-shade);
+  padding: 2%;
 }
 
 #editMovieBtnContainer {
@@ -512,6 +551,7 @@ legend {
   align-items: center;
   background-color: var(--white-shade);
   color: var(--primary-text-color);
+  transition: transform 0.3s ease;
 }
 
 .movieCells a , #addMovieContainer{
@@ -525,7 +565,18 @@ legend {
 }
 
 .movieCells:hover {
-  scale: 1.05;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px 4px var(--yellow-shade);
+}
+
+@keyframes ease-in {
+  from {
+    scale: 1.00;
+  }
+
+  to {
+    scale: 1.05;
+  }
 }
 
 #addMovieContainer a {
