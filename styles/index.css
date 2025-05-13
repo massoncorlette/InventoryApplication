@@ -10,7 +10,8 @@
   --white-shade: rgba(255,255,255);
   --yellow-shade: rgba(252,163, 17);
   --red-shade: rgba(239,35,60);
-  --red-shade-dark: rgba(217, 4, 4, 0.829);
+
+  --red-shade-dark: rgba(243, 0, 0, 0.418);
 
   --text-color: rgb(0, 0, 0);
   --text-color-alt: rgb(255,255,255);
@@ -34,7 +35,7 @@
   --grey-shade: rgb(136, 136, 136);
   --white-shade: rgba(255,255,255);
   --yellow-shade: rgba(252,163, 17);
-  --red-shade: rgba(239,35,60);
+  --red-shade: rgba(240, 1, 41, 0.342);
   --red-shade-dark: rgba(217,4,41);
 
   --text-color: rgb(255, 255, 255);
@@ -56,8 +57,12 @@ body {
   cursor: default;
 }
 
-textarea {
+textarea, input {
   font-family: "Roboto", sans-serif;
+}
+
+textarea {
+  font-size: 1.3rem;
 }
 
 a {
@@ -88,6 +93,7 @@ a {
   background-color: var(--grey-shade);
 }
 
+
 #headerContainer a {
   justify-content: flex-start;
   margin-left: 12%;
@@ -100,11 +106,13 @@ a {
 
 #dataContainer, #dataInfo {
   display: flex;
+  flex: 2;
   margin-left: 1%;
 }
 
 #dataContainerAlt {
   justify-content: space-between;
+  display: flex;
 }
 
 #headerLogo {
@@ -143,7 +151,7 @@ h2 {
   flex: 1;
   right: 10%;
   justify-content: flex-start;
-  background-color: var(--red-shade-dark);
+  background-color: var(--red-shade);
   margin: 0;
 }
 
@@ -367,6 +375,10 @@ fieldset div {
   display: flex;
 }
 
+#deleteBtnContainer {
+  flex: 1;
+}
+
 #formEntryTitle input,
 #formEntryDescription textarea,
 #submitBtnAddTitle button 
@@ -404,13 +416,13 @@ legend {
 #deleteBtnDataType button {
   flex: 1;
   padding: 2%;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 #deleteBtnDataType button {
-  font-size: 0.8rem;
-  font-weight: 300;
-  padding: 2%;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 1%;
 }
 
 #submitBtnAddTitle button {
@@ -427,6 +439,13 @@ legend {
 
 #submitBtnAddTitle button:hover, #deleteBtnDataType button:hover {
   cursor: pointer;
+}
+
+#deleteBtnDataType {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 
@@ -480,6 +499,8 @@ fieldset div input, fieldset div textarea {
  font-size: 2rem;
  font-weight: 600;
  background-color: var(--grey-shade);
+ outline: 2px solid var(--yellow-shade);
+
 }
 
 #movieTitleDetails {
@@ -489,7 +510,7 @@ fieldset div input, fieldset div textarea {
   justify-content: center;
   align-items: center;
   gap: 3%;
-  border-bottom: 1px solid var(--yellow-shade);
+  border-bottom: 2px solid var(--blue-shade);
 
 }
 
@@ -506,8 +527,12 @@ fieldset div input, fieldset div textarea {
 #movieDetailsDescription {
   grid-column: 2/10;
   grid-row:3/8;
-  background-color: var(--grey-shade);
+  background-color: var(--white-shade);
+  outline: 2px solid var(--yellow-shade);
+  font-style: italic;
   padding: 2%;
+  font-family: "Montserrat", sans-serif;
+
 }
 
 #editMovieBtnContainer {
@@ -517,6 +542,8 @@ fieldset div input, fieldset div textarea {
   flex: 1;
   justify-content: center;
   background-color: var(--yellow-shade);
+  outline: 2px solid var(--yellow-shade);
+
 }
 
 
@@ -524,6 +551,8 @@ fieldset div input, fieldset div textarea {
   display: flex;
   flex: 1;
   justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
 }
 
 #editMovieBtn {
