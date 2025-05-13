@@ -5,42 +5,17 @@
 
 :root {
 
-  --blue-shade: rgba(20, 33, 61);
+  --blue-shade: rgb(23, 38, 70);
   --grey-shade: rgb(221, 221, 221);
   --white-shade: rgba(255,255,255);
   --yellow-shade: rgba(252,163, 17);
   --red-shade: rgba(239,35,60);
-
+  --light-blue-shade: #dbe2ef;
   --red-shade-dark: rgba(243, 0, 0, 0.418);
-
+  --dark-blue-shade: #2c2c3c;
   --text-color: rgb(0, 0, 0);
-  --text-color-alt: rgb(255,255,255);
+  --text-color-alt: rgb(245,245,245);
 }
-
-:root.light {
-  --blue-shade: rgba(20, 33, 61);
-  --grey-shade: rgba(229, 229, 229);
-  --white-shade: rgba(255,255,255);
-  --yellow-shade: rgba(252,163, 17);
-  --yellow-shade-alt: rgb(212, 138, 19);
-  --red-shade: rgba(239,35,60);
-  --red-shade-dark: rgba(217,4,41);
-
-  --text-color: rgb(0, 0, 0);
-}
-
-
-:root.dark {
-  --blue-shade: rgba(20, 33, 61);
-  --grey-shade: rgb(136, 136, 136);
-  --white-shade: rgba(255,255,255);
-  --yellow-shade: rgba(252,163, 17);
-  --red-shade: rgba(240, 1, 41, 0.342);
-  --red-shade-dark: rgba(217,4,41);
-
-  --text-color: rgb(255, 255, 255);
-}
-
 
 
 html, body {
@@ -53,8 +28,8 @@ html, body {
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
-  color: var(--primary-text-color);
   cursor: default;
+  background-color: var(--light-blue-shade);
 }
 
 textarea, input {
@@ -108,11 +83,13 @@ a {
   display: flex;
   flex: 2;
   margin-left: 1%;
+  background-color: var(--light-blue-shade);
 }
 
 #dataContainerAlt {
   justify-content: space-between;
   display: flex;
+  background-color: var(--light-blue-shade);
 }
 
 #headerLogo {
@@ -178,8 +155,6 @@ h2 {
 
 .updateSideBarForm button {
   background-color: var(--yellow-shade);
-  outline: solid gray 1px ;
-
 }
 
 .updateSideBarForm button:hover {
@@ -188,17 +163,16 @@ h2 {
 
 input {
   background-color: var(--white-shade);
-  outline: solid gray 1px ;
+  border-bottom: solid 1px var(--yellow-shade);
 }
 
 #byDirector , #byGenre, #sidebarContainer{
-  background-color: var(--grey-shade);
+  background-color:var(--light-blue-shade);
 }
 
 #mainBody, #mainBodyAlt{
   min-height: 100%;
   display: flex;
-  background-color: var(--blue-shade);
 }
 
 #mainBodyEdit {
@@ -254,6 +228,7 @@ input {
 .sidebarCells {
   display: flex;
   border-bottom: var(--blue-shade) solid 1px;
+  background-color: var(--light-blue-shade);
 
 }
 
@@ -316,6 +291,10 @@ input:hover {
   cursor: pointer;
 }
 
+input:focus, textarea:focus {
+   outline: 2px solid var(--yellow-shade); 
+}
+
 details,
 summary {
   display: block;
@@ -341,12 +320,17 @@ details:open > .editIconActive, details:open > .addIconActive {
   flex: 7;
   display: flex;
   flex-wrap: wrap;
+  background-image: url('/Rect\ Light.svg');
+  background-size: cover;
+
 }
 
 #addtitleformDisplayContainer, #edittitleformDisplayContainer {
   flex: 7;
   display: flex;
   justify-content: center;
+  background-image: url('/Rect\ Light.svg');
+  background-size: cover;
 }
 
 
@@ -354,7 +338,7 @@ details:open > .editIconActive, details:open > .addIconActive {
   flex: 1;
 }
 
-#addForm, #editForm {
+#addForm, #editForm, textarea {
   width: 80%;
   height: 50%;
   animation-duration: 1.5s;
@@ -363,6 +347,15 @@ details:open > .editIconActive, details:open > .addIconActive {
   padding-bottom: 1%;
   padding-left: 3%;
   padding-right: 3%;
+}
+
+input, textarea {
+  background-color: rgb(23, 38, 70, 0.5);
+  color: var(--text-color-alt);
+}
+
+#editIconActive input {
+  background-color: var(--blue-shade);
 }
 
 #addForm fieldset, #editForm fieldset {
@@ -532,7 +525,7 @@ fieldset div input, fieldset div textarea {
   font-style: italic;
   padding: 2%;
   font-family: "Montserrat", sans-serif;
-
+  background-color: var(--light-blue-shade);
 }
 
 #editMovieBtnContainer {
@@ -578,8 +571,8 @@ fieldset div input, fieldset div textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--white-shade);
-  color: var(--primary-text-color);
+  background-color: rgb(23, 38, 70, 0.5);
+  color: var(--light-blue-shade);
   transition: transform 0.3s ease;
 }
 
@@ -595,7 +588,7 @@ fieldset div input, fieldset div textarea {
 
 .movieCells:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 12px 4px var(--yellow-shade);
+  box-shadow: 0 0 12px 4px var(--white-shade);
 }
 
 @keyframes ease-in {
