@@ -5,18 +5,19 @@ const { validationResult } = require("express-validator");
 async function handleCreateTitle(req, res, next) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).render("error?", {
+    return res.status(400).render("error", {
       errors: errors.array(),
     });
   }
 
   const { titletext } = req.body;
+  const { titleyear } = req.body;
   const { descriptiontext } = req.body;
   const { genrename } = req.body;
   const { directorname } = req.body;
 
   try {
-    await db.createTitle(titletext, descriptiontext, req); // getting ID from parsed URL from form action value '
+    await db.createTitle(titletext, titleyear, descriptiontext, req); // getting ID from parsed URL from form action value '
     res.redirect("/");
   } catch (err) {
     res.status(500).send("error");

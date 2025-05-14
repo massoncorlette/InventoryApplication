@@ -34,7 +34,7 @@
     <% console.log(urlParts); %>
     <% if (urlParts[1] != "alltitles") { %>
       <div id="deleteBtnContainer" >
-        <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/deleteall" method="POST">
+        <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/deleteall" method="POST"  onsubmit="return confirm('Really delete all data for <%= urlParts[2] %> ?');">
           <div id="deleteBtnDataType">
             <button type="submit" value="Send">Delete All Data for <%= urlParts[2] %></button>
           </div>
@@ -47,9 +47,12 @@
     <div id="addtitleformDisplayContainer">
       <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/createtitle" method="POST" id="addForm">
         <fieldset>
-          <legend>Add a title and description</legend>
+          <legend>Add a title, description and year  to <%= urlParts[2] %></legend>
           <div id="formEntryTitle">      
-            <input id="title" placeholder="Add a title & description to <%= urlParts[2] %>" type="text"  name="titletext" required><br>
+            <input id="title" placeholder="Title" type="text"  name="titletext" required><br>
+          </div>
+          <div id="formEntryYear">
+            <input id="title" placeholder="Year" type="integer"  name="titleyear" required><br>
           </div>
           <div id="formEntryDescription">
             <textarea placeholder="Enter Description" id="description" type="text" name="descriptiontext" > </textarea>

@@ -240,14 +240,14 @@ input {
 }
 
 #errorMessageContainer {
-  color: var(--primary-text-color);
+  color: var(--text-color);
   font-style: italic;
   font-size: 1.2rem;
   width: 50%;
 }
 
 #errorMessageContainer a {
-  color: rgb(82, 82, 255);
+  color: rgb(121, 177, 252);
   font-weight: 600;
 }
 
@@ -430,15 +430,23 @@ fieldset div {
 #deleteBtnContainer {
   flex: 1;
   height: 4%;
+  background-color: var(--red-shade-dark);
 }
 
 
 
 #formEntryTitle input,
+#formEntryYear input,
 #formEntryDescription textarea,
 #submitBtnAddTitle button 
 #submitBtnDeleteTitle button {
   flex: 1;
+}
+
+#formEntryTitle input,
+#formEntryYear input {
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 legend {
@@ -448,7 +456,6 @@ legend {
   font-weight: 600;
 }
 
-#formEntryTitle input,
 #submitBtnAddTitle button,
 #submitBtnDeleteTitle {
   font-size: 1.2rem;
@@ -539,6 +546,10 @@ fieldset div input, fieldset div textarea {
 }
 
 #formEntryTitle {
+  flex: 1;
+}
+
+#formEntryYear {
   flex: 1;
 }
 
@@ -665,6 +676,22 @@ fieldset div input, fieldset div textarea {
   transform: scale(1.05);
   box-shadow: 0 0 12px 4px var(--white-shade);
   
+}
+
+.movieCellContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieCellTitle {
+  font-weight: 800;
+}
+
+.movieCellYear {
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--yellow-shade);
 }
 
 @keyframes ease-in {

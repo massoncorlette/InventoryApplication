@@ -17,11 +17,11 @@ async function handleUpdateTitle(req, res) {
 
   console.log("update test");
 
-  const { titletext, descriptiontext, directorname, genrename } = req.body;
+  const { titletext, titleyear, descriptiontext, directorname, genrename } = req.body;
   const { titleid } = req.params;
 
   try {
-    await db.updateTitle(titletext, descriptiontext, titleid, directorname, genrename);
+    await db.updateTitle(titletext, titleyear, descriptiontext, titleid, directorname, genrename);
     res.redirect("/");
 
   } catch (err) {

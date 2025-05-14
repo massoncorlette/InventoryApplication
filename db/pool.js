@@ -1,5 +1,5 @@
-const { Pool } = require("pg");
 require("dotenv").config();
+const { Pool } = require("pg");
 
 // All of the following properties should be read from environment variables
 module.exports = new Pool({

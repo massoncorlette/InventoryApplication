@@ -38,7 +38,16 @@
 
     <% titles.forEach((title, index) => { %>
       <div class="movieCells">
-        <a href="/details/<%= title.titles_id %>"><%= title.title %></a>
+        <a href="/details/<%= title.titles_id %>">
+          <div class="movieCellContainer">
+            <div class="movieCellTitle">
+              <%= title.title %>
+            </div>
+            <div class="movieCellYear">
+              <%= title.year %>
+            </div>
+          </div>
+        </a>
       </div>
     <% }) %>
     <% let datatype = "alltitles" %>

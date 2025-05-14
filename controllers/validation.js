@@ -41,12 +41,17 @@ function validateTitle() {
       .trim()
       .isLength({ min: 1, max: 40 })
       .withMessage(`Title ${lengthErrTitle}`),
-      body("descriptiontext")
+    body("titleyear")
       .trim()
-      .isLength({ min: 0, max: 1001 })
-      .withMessage(`Description ${lengthErrSummary}`),
+      .isInt({ min: 1000, max:9999 })
+      .withMessage("Enter a Valid Year"),
+    body("descriptiontext")
+    .trim()
+    .isLength({ min: 0, max: 1001 })
+    .withMessage(`Description ${lengthErrSummary}`),
   ];
 }
+
 
 function validateTitleEdit() {
 
