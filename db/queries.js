@@ -43,30 +43,30 @@ async function getTitleDetails(titleID) {
   let genreName = null;
   let directorName = null;
 
-  const title = await pool.query("SELECT * FROM titles WHERE titles_id = $1", [
+  const details = await pool.query("SELECT * FROM titles WHERE titles_id = $1", [
     `${titleID}`,
   ]);
-  const titleDetails = title.rows[0];
-  const titleName = title.rows[0].title;
-  const titleId = title.rows[0].titles_id;
-  const titleDescription = title.rows[0].description;
+  const titleDetails = details.rows[0];
+  const title = details.rows[0].title;
+  const titleId = details.rows[0].titles_id;
+  const titleDescription = details.rows[0].description;
 
 
-  if (title.rows[0].director_id !== null) {
+  if (details.rows[0].director_id !== null) {
     director = await pool.query(
       "SELECT name FROM directors WHERE director_id = $1",
       [`${titleDetails.director_id}`],
     );
     directorName = director.rows[0].name;
   }
-  if (title.rows[0].genre_id !== null) {
+  if (details.rows[0].genre_id !== null) {
     genre = await pool.query("SELECT genre FROM genres WHERE genre_id = $1", [
       `${titleDetails.genre_id}`,
     ]);
     genreName = genre.rows[0].genre;
   }
 
-  return { titleName, titleId, titleDescription, directorName, genreName };
+  return { title, titleId, titleDescription, directorName, genreName };
 }
 
 async function getColumnValue(table, column, ID, IDtype) {

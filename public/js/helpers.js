@@ -4,14 +4,6 @@
 // for toggling elements clicking outside of element
 document.addEventListener("DOMContentLoaded", () => {
 
-  function setTheme() {
-    const root = document.documentElement;
-    const newTheme = root.className === 'light' ? 'dark' : 'light';
-    root.className = newTheme;
-  }
-  
-  document.querySelector('#theme-btn').addEventListener('click', setTheme);
-
   function toggleDetailsElements() {
     const detailsElements = document.querySelectorAll("details");
 
@@ -65,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
           icon.src = '/cancel.svg';
           icon.alt = 'Close';
         } else {
-          icon.src = '/addcircle.png';
+          icon.src = '/addcirclesmall.svg';
           icon.alt = 'Add';
         }
       });

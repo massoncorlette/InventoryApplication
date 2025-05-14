@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/index.css" />
+  <link rel="icon" href="/movieDBicon.png" />
   <title>Inventory Application</title>
 </head>
 <body>
@@ -19,9 +20,7 @@
         <img src="/movieDBicon.png" />
       </div>
     </div>
-    <div">
-      <button id="theme-btn">theme</button>
-    </div>
+
     <div id="dataContainer">
       <div id="glowingred">
         <img src="/glowingred.gif" />
@@ -43,7 +42,7 @@
           </div>
 
           <div id="formEntryTitle">      
-            <input id="title" type="text"  name="titletext" value="<%= titleDetails.titleName %>" placeholder="Enter movie title"><br>
+            <input id="title" type="text"  name="titletext" value="<%= titleDetails.title %>" placeholder="Enter movie title"><br>
           </div>
           <div id="formEntryTitle">      
             <input id="genre" type="text"  name="genrename" value="<%= titleDetails.genreName %>" placeholder="Enter genre"><br>

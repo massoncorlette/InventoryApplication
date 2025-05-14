@@ -6,16 +6,19 @@
 :root {
 
   --blue-shade: rgb(23, 38, 70);
+  --blue-shade-lighter: rgb(32, 51, 94);
   --grey-shade: rgb(221, 221, 221);
   --white-shade: rgba(255,255,255);
   --yellow-shade: rgba(252,163, 17);
+  --yellow-shade-darker: rgb(235, 153, 23);
   --red-shade: rgba(239,35,60);
-  --light-blue-shade: #dbe2ef;
+  --light-blue-shade: rgb(219, 226, 239);
   --red-shade-dark: rgba(243, 0, 0, 0.418);
   --dark-blue-shade: #2c2c3c;
-  --text-color: rgb(0, 0, 0);
-  --text-color-alt: rgb(245,245,245);
+  --text-color-alt: rgb(0, 0, 0);
+  --text-color: rgb(245,245,245);
 }
+
 
 
 html, body {
@@ -29,7 +32,7 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   cursor: default;
-  background-color: var(--light-blue-shade);
+  background-color: var(--blue-shade);
 }
 
 textarea, input {
@@ -51,30 +54,44 @@ a {
 }
 
 #headerContainer {
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  height: 15%;
+  display: grid;
+  grid-template-rows: repeat(1fr, 5);
+  grid-template-columns: repeat(1fr, 10);
   font-size: 2rem;
-  background-color: var(--yellow-shade);
+  background: linear-gradient(
+    to right,
+    rgb(192, 125, 9),  
+    rgba(255, 173, 41),  
+    rgb(255, 171, 35)   
+  );
 }
 
 #headerContainerAlt {
   height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-rows: repeat(1fr, 5);
+  grid-template-columns: repeat(1fr, 10);
+
   font-size: 2rem;
-  background-color: var(--grey-shade);
+  background: linear-gradient(
+    to right,
+    rgb(192, 125, 9),  
+    rgba(255, 173, 41),  
+    rgb(255, 171, 35)   
+  );
 }
 
 
 #headerContainer a {
+
   justify-content: flex-start;
   margin-left: 12%;
 }
 
 #headerLogoContainer {
+  grid-row: 2/4;
+  grid-column: 2/10;
   display: flex;
   width: 60%;
 }
@@ -82,14 +99,19 @@ a {
 #dataContainer, #dataInfo {
   display: flex;
   flex: 2;
-  margin-left: 1%;
-  background-color: var(--light-blue-shade);
+  background-color: var(--blue-shade);
+  margin: 0;
+}
+
+#dataContainer {
+  grid-row: 5/6;
+  grid-column: 1/11;
 }
 
 #dataContainerAlt {
   justify-content: space-between;
   display: flex;
-  background-color: var(--light-blue-shade);
+  background-color: var(--light-blue);
 }
 
 #headerLogo {
@@ -107,11 +129,15 @@ a {
   margin-bottom: 1%;
 }
 
-#headerTxt,
 h1,
 h2 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-weight: 800;
+}
+
+#headerTxt {
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
 }
 
 
@@ -120,6 +146,7 @@ h2 {
   font-size: 1rem;
   display: flex;
   align-items: center;
+  color: var(--text-color);
 }
 
 h1,
@@ -128,7 +155,14 @@ h2 {
   flex: 1;
   right: 10%;
   justify-content: flex-start;
-  background-color: var(--red-shade);
+  background: linear-gradient(
+    to right,
+    rgb(192, 125, 9),  
+    rgba(255, 173, 41),  
+    rgb(255, 171, 35)   
+  );
+  color: var(--text-color-alt);
+
   margin: 0;
 }
 
@@ -155,6 +189,15 @@ h2 {
 
 .updateSideBarForm button {
   background-color: var(--yellow-shade);
+  outline: 2px solid var(--yellow-shade); 
+}
+
+.updateSideBarForm button:hover {
+  background-color: var(--yellow-shade-darker);
+}
+
+.updateSideBarForm input {
+  outline: 2px solid var(--yellow-shade); 
 }
 
 .updateSideBarForm button:hover {
@@ -162,17 +205,19 @@ h2 {
 }
 
 input {
-  background-color: var(--white-shade);
   border-bottom: solid 1px var(--yellow-shade);
 }
 
 #byDirector , #byGenre, #sidebarContainer{
-  background-color:var(--light-blue-shade);
+  background-color:var(--blue-shade);
+  
 }
 
 #mainBody, #mainBodyAlt{
   min-height: 100%;
   display: flex;
+  border-top: solid var(--yellow-shade) 2px;
+
 }
 
 #mainBodyEdit {
@@ -183,8 +228,9 @@ input {
   color: var(--text-color-alt);
 }
 
-#sideBarContainer {
+#sidebarContainer {
   min-height: 100%;
+
 }
 
 
@@ -228,12 +274,13 @@ input {
 .sidebarCells {
   display: flex;
   border-bottom: var(--blue-shade) solid 1px;
-  background-color: var(--light-blue-shade);
-
+  background-color: var(--blue-shade);
+  font-weight: 600;
+  border-bottom: solid var(--blue-shade-lighter) 1px;
 }
 
 .sidebarCells:hover {
-  background-color: var(--white-shade);
+  background-color: var(--blue-shade-lighter);
 }
 
 
@@ -277,7 +324,12 @@ input {
 }
 
 .addDataToggle:hover {
-  background-color: rgb(98, 140, 255);
+  background: linear-gradient(
+    to right,
+    rgba(192,125,9) 0%,     
+    rgba(252,163,17),    
+    rgba(192,125,9)100%    
+  );
 }
 
 .addDataToggle summary {
@@ -322,6 +374,7 @@ details:open > .editIconActive, details:open > .addIconActive {
   flex-wrap: wrap;
   background-image: url('/Rect\ Light.svg');
   background-size: cover;
+  border-left: solid var(--yellow-shade) 2px;
 
 }
 
@@ -331,6 +384,7 @@ details:open > .editIconActive, details:open > .addIconActive {
   justify-content: center;
   background-image: url('/Rect\ Light.svg');
   background-size: cover;
+  border-left: solid var(--yellow-shade) 2px;
 }
 
 
@@ -351,7 +405,12 @@ details:open > .editIconActive, details:open > .addIconActive {
 
 input, textarea {
   background-color: rgb(23, 38, 70, 0.5);
-  color: var(--text-color-alt);
+  color: var(--text-color);
+}
+
+.updateSideBarForm input {
+  background-color: var(--blue-shade);
+  color: var(--text-color);
 }
 
 #editIconActive input {
@@ -370,13 +429,15 @@ fieldset div {
 
 #deleteBtnContainer {
   flex: 1;
+  height: 4%;
 }
+
+
 
 #formEntryTitle input,
 #formEntryDescription textarea,
 #submitBtnAddTitle button 
-#submitBtnDeleteTitle button,
-#deleteBtnDataType button {
+#submitBtnDeleteTitle button {
   flex: 1;
 }
 
@@ -398,6 +459,7 @@ legend {
 }
 
 #formEntryDescription textarea {
+  height: 100%;
   resize: none;
   overflow-wrap: break-word;
   text-align: left;
@@ -405,8 +467,7 @@ legend {
   line-height: 1.5;
 }
 
-#submitBtnAddTitle button,
-#deleteBtnDataType button {
+#submitBtnAddTitle button {
   flex: 1;
   padding: 2%;
   font-weight: 600;
@@ -415,15 +476,17 @@ legend {
 #deleteBtnDataType button {
   font-size: 0.7rem;
   font-weight: 600;
-  padding: 1%;
+  height: 100%;
 }
 
 #submitBtnAddTitle button {
   background-color: var(--yellow-shade);
+  outline: 2px solid var(--yellow-shade); 
 }
 
 #deleteBtnDataType button {
   background-color: var(--red-shade-dark);
+  color: var(--text-color);
 }
 
 #deleteBtnDataType button:hover {
@@ -434,12 +497,24 @@ legend {
   cursor: pointer;
 }
 
+#deleteBtnContainer form {
+  flex: 1;
+  height: 100%;
+}
+
 #deleteBtnDataType {
   flex: 1;
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
+
+#deleteBtnDataType button {
+  flex: 1;
+}
+
+
 
 
 #formHeaderContainer {
@@ -589,6 +664,7 @@ fieldset div input, fieldset div textarea {
 .movieCells:hover {
   transform: scale(1.05);
   box-shadow: 0 0 12px 4px var(--white-shade);
+  
 }
 
 @keyframes ease-in {
@@ -610,6 +686,10 @@ fieldset div input, fieldset div textarea {
 
   body {
     font-size: smaller;
+  }
+
+  #headerTxt {
+    font-size: 1.2rem;
   }
 
   #movieDetails {
@@ -664,6 +744,11 @@ fieldset div input, fieldset div textarea {
     font-size: 0.75rem;
   }
 
+  #headerTxt {
+    font-size: 1rem;
+  }
+  
+
 
   .movieCells {
     width: 50%;
@@ -685,7 +770,6 @@ fieldset div input, fieldset div textarea {
     justify-content: center;
   }
 
-    #headerTxt,
   h1,
   h2 {
     font-family: "Montserrat", sans-serif;
@@ -694,7 +778,7 @@ fieldset div input, fieldset div textarea {
   }
 
   .movieCells, .sidebarCells, #dataValueType {
-    font-size: smaller;
+    font-size: 0.5rem;
   }
 
 }

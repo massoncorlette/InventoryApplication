@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/index.css" />
+  <link rel="icon" href="/movieDBicon.png" />
   <title>Inventory Application</title>
 </head>
 <body>
@@ -19,12 +20,8 @@
         <img src="/movieDBicon.png" />
       </div>
     </div>
-    <div">
-      <button id="theme-btn">theme</button>
-    </div>
-  </div>
-  <div id="dataContainerAlt">
-    <div id="dataInfo">
+
+    <div id="dataContainer">
       <div id="glowingred">
         <img src="/glowingred.gif" />
       </div>
@@ -32,11 +29,12 @@
         Create Mode
       </div>
     </div>
+  </div>
     <% const urlParts = req.originalUrl.split('/').map(part => decodeURIComponent(part)); %>
     <% console.log(urlParts); %>
     <% if (urlParts[1] != "alltitles") { %>
-      <div id="deleteBtnContainer">
-        <form>
+      <div id="deleteBtnContainer" >
+        <form action="/<%= urlParts[1] %>/<%= urlParts[2] %>/deleteall" method="POST">
           <div id="deleteBtnDataType">
             <button type="submit" value="Send">Delete All Data for <%= urlParts[2] %></button>
           </div>

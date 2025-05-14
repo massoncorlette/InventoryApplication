@@ -54,7 +54,10 @@ async function updateDirector(director, id) {
   ]);
 }
 
-async function deleteDirector(director, id) {}
+async function deleteDirector(id) {
+  await pool.query("DELETE FROM titles WHERE director_id = $1", [id]);
+  await pool.query("DELETE FROM directors WHERE director_id = $1", [id]);
+}
 
 async function createGenre(genre) {
   await pool.query("INSERT INTO genres(genre) VALUES ($1)", [genre]);
@@ -67,7 +70,10 @@ async function updateGenre(genre, id) {
   ]);
 }
 
-async function deleteGenre(director, id) {}
+async function deleteGenre(id) {
+  await pool.query("DELETE FROM titles WHERE genre_id = $1", [id]);
+  await pool.query("DELETE FROM genres WHERE genre_id = $1", [id]);
+}
 
 async function updateTitle(title, description, id, director, genre) {
 

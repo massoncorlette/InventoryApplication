@@ -11,7 +11,7 @@ const {
   handleCreateGenre,
   handleCreateDirector,
 } = require("../controllers/dataController/createController");
-const { handleDeleteTitle } = require("../controllers/dataController/deleteController");
+const { handleDeleteTitle, handleDeleteAll } = require("../controllers/dataController/deleteController");
 const {
   validateDirector,
   validateTitle,
@@ -45,6 +45,8 @@ indexRouter.post(
 );
 indexRouter.post("/:titleid/edittitle", validateTitleEdit(), handleUpdateTitle);
 indexRouter.post("/:titleid/deletetitle", handleDeleteTitle);
+
+indexRouter.post("/:datatype/:datavalue/deleteall", handleDeleteAll);
 
 
 module.exports = indexRouter;
