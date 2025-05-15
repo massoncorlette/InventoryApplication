@@ -3,7 +3,6 @@ const pool = require("./pool");
 const queries = require("./queries");
 
 async function createTitle(title, year, descriptiontext, req) {
-
   if (descriptiontext == null) {
     descriptiontext = " ";
   }
@@ -17,13 +16,11 @@ async function createTitle(title, year, descriptiontext, req) {
       "genre",
       req.params.datavalue,
     );
-    await pool.query("INSERT INTO titles (title, year, description ,genre_id) VALUES ($1, $2, $3, $4)", [
-      title,
-      year,
-      descriptiontext,
-      result.genre_id,
-    ]);
-  } else if ((req.params.datatype == "directoradd")) {
+    await pool.query(
+      "INSERT INTO titles (title, year, description ,genre_id) VALUES ($1, $2, $3, $4)",
+      [title, year, descriptiontext, result.genre_id],
+    );
+  } else if (req.params.datatype == "directoradd") {
     const result = await queries.getColumnId(
       "director_id",
       "directors",
@@ -34,14 +31,16 @@ async function createTitle(title, year, descriptiontext, req) {
       "INSERT INTO titles (title, year, description, director_id) VALUES ($1, $2, $3, $4)",
       [title, year, descriptiontext, result.director_id],
     );
-  } else if ((req.params.datatype == "alltitles")) {
-    await pool.query("INSERT INTO titles (title,year, description) VALUES ($1, $2, $3)", [title, year, descriptiontext]);
+  } else if (req.params.datatype == "alltitles") {
+    await pool.query(
+      "INSERT INTO titles (title,year, description) VALUES ($1, $2, $3)",
+      [title, year, descriptiontext],
+    );
   }
 }
 
-
 async function deleteTitle(id) {
-  await pool.query("DELETE FROM titles WHERE titles_id = $1", [id])
+  await pool.query("DELETE FROM titles WHERE titles_id = $1", [id]);
 }
 
 async function createDirector(director) {
@@ -77,43 +76,63 @@ async function deleteGenre(id) {
 }
 
 async function updateTitle(title, year, description, id, director, genre) {
-
   try {
     // query for duplicate data for submitted genre and director
-    let genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
-    let directorID = await queries.getColumnId("director_id", "directors", "name", director);
+    let genreID = await queries.getColumnId(
+      "genre_id",
+      "genres",
+      "genre",
+      genre,
+    );
+    let directorID = await queries.getColumnId(
+      "director_id",
+      "directors",
+      "name",
+      director,
+    );
 
     console.log(genre, director);
 
     // if not found, create the data and get ID
-    if (genreID == null &&  genre.trim() !== "") {
+    if (genreID == null && genre.trim() !== "") {
       await createGenre(genre);
       genreID = await queries.getColumnId("genre_id", "genres", "genre", genre);
-   
     }
 
-    if (directorID == null &&  director.trim() !== "") {
+    if (directorID == null && director.trim() !== "") {
       await createDirector(director);
-      directorID = await queries.getColumnId("director_id", "directors", "name", director);
+      directorID = await queries.getColumnId(
+        "director_id",
+        "directors",
+        "name",
+        director,
+      );
     }
     // finally update title, description and foreign keys
-    await pool.query("UPDATE titles SET title = $1 ,description = $2, year = $3 WHERE titles_id = $4", [title, description, year, id]);
+    await pool.query(
+      "UPDATE titles SET title = $1 ,description = $2, year = $3 WHERE titles_id = $4",
+      [title, description, year, id],
+    );
 
     // if genre and director are not empty update as well
-      if (genreID != null) {
+    if (genreID != null) {
       console.log(genreID, "Hi");
-      await pool.query("UPDATE titles SET title = $1, genre_id = $2 WHERE titles_id = $3", [title, genreID.genre_id, id]);
+      await pool.query(
+        "UPDATE titles SET title = $1, genre_id = $2 WHERE titles_id = $3",
+        [title, genreID.genre_id, id],
+      );
     }
 
-      if (directorID != null) {
-      await pool.query("UPDATE titles SET title = $1, director_id = $2 WHERE titles_id = $3", [title, directorID.director_id, id]);
+    if (directorID != null) {
+      await pool.query(
+        "UPDATE titles SET title = $1, director_id = $2 WHERE titles_id = $3",
+        [title, directorID.director_id, id],
+      );
     }
-
-
   } catch (error) {
     console.error("Error updating title", error.message);
   }
-};
+}
 
 module.exports = {
   createTitle,

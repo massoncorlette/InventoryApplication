@@ -2,26 +2,23 @@
   border: solid rgba(255, 53, 53, 0) 1px;
 }
 
-
 :root {
-
   --blue-shade: rgb(23, 38, 70);
   --blue-shade-lighter: rgb(32, 51, 94);
   --grey-shade: rgb(221, 221, 221);
-  --white-shade: rgba(255,255,255);
-  --yellow-shade: rgba(252,163, 17);
+  --white-shade: rgba(255, 255, 255);
+  --yellow-shade: rgba(252, 163, 17);
   --yellow-shade-darker: rgb(235, 153, 23);
-  --red-shade: rgba(239,35,60);
+  --red-shade: rgba(239, 35, 60);
   --light-blue-shade: rgb(219, 226, 239);
   --red-shade-dark: rgba(243, 0, 0, 0.418);
   --dark-blue-shade: #2c2c3c;
   --text-color-alt: rgb(0, 0, 0);
-  --text-color: rgb(245,245,245);
+  --text-color: rgb(245, 245, 245);
 }
 
-
-
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -35,7 +32,8 @@ body {
   background-color: var(--blue-shade);
 }
 
-textarea, input {
+textarea,
+input {
   font-family: "Roboto", sans-serif;
 }
 
@@ -48,7 +46,7 @@ a {
   list-style: none;
   color: var(--primary-text-color);
   display: flex;
-  
+
   align-items: center;
   height: 100%;
 }
@@ -61,9 +59,9 @@ a {
   font-size: 2rem;
   background: linear-gradient(
     to right,
-    rgb(192, 125, 9),  
-    rgba(255, 173, 41),  
-    rgb(255, 171, 35)   
+    rgb(192, 125, 9),
+    rgba(255, 173, 41),
+    rgb(255, 171, 35)
   );
 }
 
@@ -76,15 +74,13 @@ a {
   font-size: 2rem;
   background: linear-gradient(
     to right,
-    rgb(192, 125, 9),  
-    rgba(255, 173, 41),  
-    rgb(255, 171, 35)   
+    rgb(192, 125, 9),
+    rgba(255, 173, 41),
+    rgb(255, 171, 35)
   );
 }
 
-
 #headerContainer a {
-
   justify-content: flex-start;
   margin-left: 12%;
 }
@@ -96,7 +92,8 @@ a {
   width: 60%;
 }
 
-#dataContainer, #dataInfo {
+#dataContainer,
+#dataInfo {
   display: flex;
   flex: 2;
   background-color: var(--blue-shade);
@@ -140,7 +137,6 @@ h2 {
   font-family: "Montserrat", sans-serif;
 }
 
-
 #dataValueType {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
@@ -157,16 +153,14 @@ h2 {
   justify-content: flex-start;
   background: linear-gradient(
     to right,
-    rgb(192, 125, 9),  
-    rgba(255, 173, 41),  
-    rgb(255, 171, 35)   
+    rgb(192, 125, 9),
+    rgba(255, 173, 41),
+    rgb(255, 171, 35)
   );
   color: var(--text-color-alt);
 
   margin: 0;
 }
-
-
 
 .editIconActive {
   display: flex;
@@ -189,7 +183,7 @@ h2 {
 
 .updateSideBarForm button {
   background-color: var(--yellow-shade);
-  outline: 2px solid var(--yellow-shade); 
+  outline: 2px solid var(--yellow-shade);
 }
 
 .updateSideBarForm button:hover {
@@ -197,7 +191,7 @@ h2 {
 }
 
 .updateSideBarForm input {
-  outline: 2px solid var(--yellow-shade); 
+  outline: 2px solid var(--yellow-shade);
 }
 
 .updateSideBarForm button:hover {
@@ -208,16 +202,17 @@ input {
   border-bottom: solid 1px var(--yellow-shade);
 }
 
-#byDirector , #byGenre, #sidebarContainer{
-  background-color:var(--blue-shade);
-  
+#byDirector,
+#byGenre,
+#sidebarContainer {
+  background-color: var(--blue-shade);
 }
 
-#mainBody, #mainBodyAlt{
+#mainBody,
+#mainBodyAlt {
   min-height: 100%;
   display: flex;
   border-top: solid var(--yellow-shade) 2px;
-
 }
 
 #mainBodyEdit {
@@ -230,9 +225,7 @@ input {
 
 #sidebarContainer {
   min-height: 100%;
-
 }
-
 
 #errorMessageTxt {
   font-size: 1.5rem;
@@ -270,7 +263,6 @@ input {
   }
 }
 
-
 .sidebarCells {
   display: flex;
   border-bottom: var(--blue-shade) solid 1px;
@@ -283,29 +275,26 @@ input {
   background-color: var(--blue-shade-lighter);
 }
 
-
 .sideBarTxtContainer {
   flex: 2;
 }
 
 .sideBarTxtContainer a {
   color: var(--text-color);
-
 }
 
 .sidebarCells:has(details[open]) .sideBarTxtContainer {
   display: none;
 }
 
-
-.sidebarCells:has(details[open]), .addSideBarSection:has(details[open]) {
+.sidebarCells:has(details[open]),
+.addSideBarSection:has(details[open]) {
   animation-duration: 1.5s;
   animation-name: font-ease;
 }
 
-
-
-.sidebarDetails, .addDataToggle {
+.sidebarDetails,
+.addDataToggle {
   display: flex;
   flex-direction: row-reverse;
 }
@@ -326,9 +315,9 @@ input {
 .addDataToggle:hover {
   background: linear-gradient(
     to right,
-    rgba(192,125,9) 0%,     
-    rgba(252,163,17),    
-    rgba(192,125,9)100%    
+    rgba(192, 125, 9) 0%,
+    rgba(252, 163, 17),
+    rgba(192, 125, 9) 100%
   );
 }
 
@@ -338,13 +327,13 @@ input {
   justify-content: center;
 }
 
-
 input:hover {
   cursor: pointer;
 }
 
-input:focus, textarea:focus {
-   outline: 2px solid var(--yellow-shade); 
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--yellow-shade);
 }
 
 details,
@@ -361,7 +350,8 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
-details:open > .editIconActive, details:open > .addIconActive {
+details:open > .editIconActive,
+details:open > .addIconActive {
   position: relative;
   width: 100%;
   height: 100%;
@@ -372,27 +362,29 @@ details:open > .editIconActive, details:open > .addIconActive {
   flex: 7;
   display: flex;
   flex-wrap: wrap;
-  background-image: url('/Rect\ Light.svg');
+  background-image: url("/Rect\ Light.svg");
   background-size: cover;
   border-left: solid var(--yellow-shade) 2px;
-
 }
 
-#addtitleformDisplayContainer, #edittitleformDisplayContainer {
+#addtitleformDisplayContainer,
+#edittitleformDisplayContainer {
   flex: 7;
   display: flex;
   justify-content: center;
-  background-image: url('/Rect\ Light.svg');
+  background-image: url("/Rect\ Light.svg");
   background-size: cover;
   border-left: solid var(--yellow-shade) 2px;
 }
 
-
-#addtitleformDisplayContainer form, #edittitleformDisplayContainer form {
+#addtitleformDisplayContainer form,
+#edittitleformDisplayContainer form {
   flex: 1;
 }
 
-#addForm, #editForm, textarea {
+#addForm,
+#editForm,
+textarea {
   width: 80%;
   height: 50%;
   animation-duration: 1.5s;
@@ -403,7 +395,8 @@ details:open > .editIconActive, details:open > .addIconActive {
   padding-right: 3%;
 }
 
-input, textarea {
+input,
+textarea {
   background-color: rgb(23, 38, 70, 0.5);
   color: var(--text-color);
 }
@@ -417,7 +410,8 @@ input, textarea {
   background-color: var(--blue-shade);
 }
 
-#addForm fieldset, #editForm fieldset {
+#addForm fieldset,
+#editForm fieldset {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -433,13 +427,10 @@ fieldset div {
   background-color: var(--red-shade-dark);
 }
 
-
-
 #formEntryTitle input,
 #formEntryYear input,
 #formEntryDescription textarea,
-#submitBtnAddTitle button 
-#submitBtnDeleteTitle button {
+#submitBtnAddTitle button #submitBtnDeleteTitle button {
   flex: 1;
 }
 
@@ -488,7 +479,7 @@ legend {
 
 #submitBtnAddTitle button {
   background-color: var(--yellow-shade);
-  outline: 2px solid var(--yellow-shade); 
+  outline: 2px solid var(--yellow-shade);
 }
 
 #deleteBtnDataType button {
@@ -500,7 +491,8 @@ legend {
   background-color: var(--red-shade);
 }
 
-#submitBtnAddTitle button:hover, #deleteBtnDataType button:hover {
+#submitBtnAddTitle button:hover,
+#deleteBtnDataType button:hover {
   cursor: pointer;
 }
 
@@ -521,23 +513,19 @@ legend {
   flex: 1;
 }
 
-
-
-
 #formHeaderContainer {
   display: flex;
   justify-content: space-between;
 }
 
-fieldset div input, fieldset div textarea {
+fieldset div input,
+fieldset div textarea {
   padding: 1%;
 }
-
 
 #submitBtnDeleteTitle button:hover {
   scale: 1.1;
   cursor: pointer;
-
 }
 
 #trashIcon {
@@ -568,18 +556,17 @@ fieldset div input, fieldset div textarea {
 }
 
 #movieDetailsTitle {
- grid-column: 2/10;
- grid-row: 2/3;
- display: flex;
- flex-direction: column;
- flex: 1;
- justify-content: center;
- align-items: center;
- font-size: 2rem;
- font-weight: 600;
- background-color: var(--grey-shade);
- outline: 2px solid var(--yellow-shade);
-
+  grid-column: 2/10;
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  background-color: var(--grey-shade);
+  outline: 2px solid var(--yellow-shade);
 }
 
 #movieTitleDetails {
@@ -590,22 +577,20 @@ fieldset div input, fieldset div textarea {
   align-items: center;
   gap: 3%;
   border-bottom: 2px solid var(--blue-shade);
-
 }
 
 #movieDetailsGenre {
   justify-content: center;
 }
 
-
 #movieDetailsDirector {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 #movieDetailsDescription {
   grid-column: 2/10;
-  grid-row:3/8;
+  grid-row: 3/8;
   background-color: var(--white-shade);
   outline: 2px solid var(--yellow-shade);
   font-style: italic;
@@ -616,15 +601,13 @@ fieldset div input, fieldset div textarea {
 
 #editMovieBtnContainer {
   grid-column: 2/10;
-  grid-row: 8/9 ;
+  grid-row: 8/9;
   display: flex;
   flex: 1;
   justify-content: center;
   background-color: var(--yellow-shade);
   outline: 2px solid var(--yellow-shade);
-
 }
-
 
 #editMovieBtnContainer a {
   display: flex;
@@ -662,20 +645,20 @@ fieldset div input, fieldset div textarea {
   transition: transform 0.3s ease;
 }
 
-.movieCells a , #addMovieContainer{
+.movieCells a,
+#addMovieContainer {
   width: 80%;
   border: solid var(--primary-color-alt) 1px;
-
 }
 
-.movieCells, #addMovieContainer {
-  border: var(--blue-shade) solid 1px
+.movieCells,
+#addMovieContainer {
+  border: var(--blue-shade) solid 1px;
 }
 
 .movieCells:hover {
   transform: scale(1.05);
   box-shadow: 0 0 12px 4px var(--white-shade);
-  
 }
 
 .movieCellContainer {
@@ -696,7 +679,7 @@ fieldset div input, fieldset div textarea {
 
 @keyframes ease-in {
   from {
-    scale: 1.00;
+    scale: 1;
   }
 
   to {
@@ -710,7 +693,6 @@ fieldset div input, fieldset div textarea {
 
 /* Tablet */
 @media (max-width: 80em) {
-
   body {
     font-size: smaller;
   }
@@ -726,12 +708,11 @@ fieldset div input, fieldset div textarea {
   #movieDetailsTitle {
     font-size: 1.5rem;
   }
-  
 
   .movieCells {
     width: 25%;
   }
-  
+
   #sidebarContainer {
     flex: 2;
   }
@@ -748,24 +729,21 @@ fieldset div input, fieldset div textarea {
     justify-content: center;
   }
 
-  #addForm, #editForm {
+  #addForm,
+  #editForm {
     height: 60%;
-
   }
 
   #formEntryDescription {
     flex: 3;
   }
-  
 }
 /* Mobile */
 @media (max-width: 51.25em) {
-
-
-  html, body {
+  html,
+  body {
     min-width: 30em;
   }
-
 
   #movieDetails {
     font-size: 0.75rem;
@@ -774,8 +752,6 @@ fieldset div input, fieldset div textarea {
   #headerTxt {
     font-size: 1rem;
   }
-  
-
 
   .movieCells {
     width: 50%;
@@ -804,8 +780,9 @@ fieldset div input, fieldset div textarea {
     font-size: smaller;
   }
 
-  .movieCells, .sidebarCells, #dataValueType {
+  .movieCells,
+  .sidebarCells,
+  #dataValueType {
     font-size: 0.5rem;
   }
-
 }

@@ -17,18 +17,24 @@ async function handleUpdateTitle(req, res) {
 
   console.log("update test");
 
-  const { titletext, titleyear, descriptiontext, directorname, genrename } = req.body;
+  const { titletext, titleyear, descriptiontext, directorname, genrename } =
+    req.body;
   const { titleid } = req.params;
 
   try {
-    await db.updateTitle(titletext, titleyear, descriptiontext, titleid, directorname, genrename);
+    await db.updateTitle(
+      titletext,
+      titleyear,
+      descriptiontext,
+      titleid,
+      directorname,
+      genrename,
+    );
     res.redirect("/");
-
   } catch (err) {
     res.status(500).send("error");
   }
-};
-
+}
 
 async function handleUpdateDirector(req, res) {
   const errors = validationResult(req);
@@ -47,7 +53,7 @@ async function handleUpdateDirector(req, res) {
   } catch (err) {
     res.status(500).send("error");
   }
-};
+}
 
 async function handleUpdateGenre(req, res) {
   const errors = validationResult(req);
@@ -66,6 +72,6 @@ async function handleUpdateGenre(req, res) {
   } catch (err) {
     res.status(500).send("error");
   }
-};
+}
 
 module.exports = { handleUpdateTitle, handleUpdateGenre, handleUpdateDirector };

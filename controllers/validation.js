@@ -12,7 +12,7 @@ const lengthErrSummary = "must be below 1000 characters.";
 function validateDirector() {
   return [
     body("directorname")
-      .optional({ checkFalsy: true }) 
+      .optional({ checkFalsy: true })
       .trim()
       .isAlpha("en-US", { ignore: [" ", "-"] })
       .withMessage(`Director name ${alphaErr}`)
@@ -21,12 +21,10 @@ function validateDirector() {
   ];
 }
 
-
-
 function validateGenre() {
   return [
     body("genrename")
-      .optional({ checkFalsy: true }) 
+      .optional({ checkFalsy: true })
       .trim()
       .isLength({ min: 0, max: 12 })
       .withMessage(`Genre name ${lengthErrAlt}`)
@@ -43,27 +41,18 @@ function validateTitle() {
       .withMessage(`Title ${lengthErrTitle}`),
     body("titleyear")
       .trim()
-      .isInt({ min: 1000, max:9999 })
+      .isInt({ min: 1000, max: 9999 })
       .withMessage("Enter a Valid Year"),
     body("descriptiontext")
-    .trim()
-    .isLength({ min: 0, max: 1001 })
-    .withMessage(`Description ${lengthErrSummary}`),
+      .trim()
+      .isLength({ min: 0, max: 1001 })
+      .withMessage(`Description ${lengthErrSummary}`),
   ];
 }
-
 
 function validateTitleEdit() {
-
-  return [
-    ...validateTitle(),
-    ...validateDirector(),
-    ...validateGenre()
-  ];
-  
+  return [...validateTitle(), ...validateDirector(), ...validateGenre()];
 }
-
-
 
 module.exports = {
   validateDirector,

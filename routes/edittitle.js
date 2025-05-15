@@ -9,5 +9,4 @@ editTitleRouter.get("/:datatype/:titleid", async (req, res, next) => {
   return displayEditTitle(req, res, next);
 });
 
-
 module.exports = editTitleRouter;

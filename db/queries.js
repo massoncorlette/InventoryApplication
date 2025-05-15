@@ -43,15 +43,15 @@ async function getTitleDetails(titleID) {
   let genreName = null;
   let directorName = null;
 
-  const details = await pool.query("SELECT * FROM titles WHERE titles_id = $1", [
-    `${titleID}`,
-  ]);
+  const details = await pool.query(
+    "SELECT * FROM titles WHERE titles_id = $1",
+    [`${titleID}`],
+  );
   const titleDetails = details.rows[0];
   const title = details.rows[0].title;
   const year = details.rows[0].year;
   const titleId = details.rows[0].titles_id;
   const titleDescription = details.rows[0].description;
-
 
   if (details.rows[0].director_id !== null) {
     director = await pool.query(

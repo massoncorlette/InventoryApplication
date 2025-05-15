@@ -1,9 +1,7 @@
 // browser side helpers go here
 
-
 // for toggling elements clicking outside of element
 document.addEventListener("DOMContentLoaded", () => {
-
   function toggleDetailsElements() {
     const detailsElements = document.querySelectorAll("details");
 
@@ -35,43 +33,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function toggleDetailsSummaryImg() {
-    document.querySelectorAll('.sidebarDetails').forEach(detail => {
-      const icon = detail.querySelector('summary img.editIcon');
-    
-      detail.addEventListener('toggle', () => {
+    document.querySelectorAll(".sidebarDetails").forEach((detail) => {
+      const icon = detail.querySelector("summary img.editIcon");
+
+      detail.addEventListener("toggle", () => {
         if (detail.open) {
-          icon.src = '/cancel.svg';
-          icon.alt = 'Close';
+          icon.src = "/cancel.svg";
+          icon.alt = "Close";
         } else {
-          icon.src = '/editpen.svg';
-          icon.alt = 'Edit';
+          icon.src = "/editpen.svg";
+          icon.alt = "Edit";
         }
       });
     });
 
-    document.querySelectorAll('.addDataToggle').forEach(detail => {
-      const icon = detail.querySelector('summary img.addIcon');
-    
-      detail.addEventListener('toggle', () => {
+    document.querySelectorAll(".addDataToggle").forEach((detail) => {
+      const icon = detail.querySelector("summary img.addIcon");
+
+      detail.addEventListener("toggle", () => {
         if (detail.open) {
-          icon.src = '/cancel.svg';
-          icon.alt = 'Close';
+          icon.src = "/cancel.svg";
+          icon.alt = "Close";
         } else {
-          icon.src = '/addcirclesmall.svg';
-          icon.alt = 'Add';
+          icon.src = "/addcirclesmall.svg";
+          icon.alt = "Add";
         }
       });
     });
   }
 
-  document.querySelectorAll('details').forEach(detail => {
-    const icon = detail.querySelector('summary img.editIcon');
-  
-    detail.addEventListener('toggle', () => {
+  document.querySelectorAll("details").forEach((detail) => {
+    const icon = detail.querySelector("summary img.editIcon");
+
+    detail.addEventListener("toggle", () => {
       if (detail.open) {
-        icon.src = '/closepen.svg';
+        icon.src = "/closepen.svg";
       } else {
-        icon.src = '/editpen.svg';
+        icon.src = "/editpen.svg";
       }
     });
   });
