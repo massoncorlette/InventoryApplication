@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node db/populatedb.js",
+    "seed": "node db/populatedb.js",
+    "start": "node app.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format:css": "prettier --write \"**/*.css\"",
